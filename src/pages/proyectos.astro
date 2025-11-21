@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { ArrowRight } from 'lucide-react';
+
+const projects = [
+  { img: '/Gemini_Generated_Image_exyvenexyvenexyv.png', title: 'Cocina Tradicional', desc: 'Diseño clásico y funcional' },
+  { img: '/Gemini_Generated_Image_jeq0kqjeq0kqjeq0.png', title: 'Cocina Moderna', desc: 'Estilo minimalista contemporáneo' },
+  { img: '/Gemini_Generated_Image_mljzfkmljzfkmljz.png', title: 'Cocina Premium', desc: 'Acabados de lujo' },
+  { img: '/Gemini_Generated_Image_5hacl35hacl35hac.png', title: 'Cocina con Isla', desc: 'Espacio multifuncional' },
+  { img: '/Gemini_Generated_Image_6zzvha6zzvha6zzv.png', title: 'Remodelación Integral', desc: 'Transformación completa' },
+  { img: '/Gemini_Generated_Image_dy1tr0dy1tr0dy1t.png', title: 'Cocina Lineal', desc: 'Diseño optimizado' }
+];
+---
+
+<BaseLayout title="Proyectos" description="Galería de nuestros proyectos realizados. Diseños exclusivos y a medida.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-dark-900 via-primary-900 to-dark-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Nuestros proyectos"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Nuestros<br />
+          <span class="gradient-text bg-gradient-to-r from-primary-300 to-white">Proyectos</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+          Descubre algunos de nuestros trabajos realizados. Cada proyecto es único.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="section-padding bg-dark-100">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <div class="group bg-white rounded-2xl overflow-hidden card-hover shadow-lg border border-dark-200">
+            <div class="h-64 relative overflow-hidden">
+              <img 
+                src={project.img}
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">{project.title}</h3>
+              <p class="text-dark-600">{project.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-xl text-dark-600 mb-6">
+          ¿Quieres ver más proyectos o tienes uno en mente?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#cotizar" class="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2">
+            Iniciar mi proyecto
+            <ArrowRight class="w-5 h-5" />
+          </a>
+          <WhatsAppButton variant="inline" className="text-lg px-8 py-4" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

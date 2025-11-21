@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { CheckCircle, ArrowRight, Package } from 'lucide-react';
+---
+
+<BaseLayout title="Almacenamiento" description="Soluciones de almacenamiento inteligente para maximizar el espacio en tu cocina.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Sistemas de almacenamiento"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Soluciones de<br />
+          <span class="gradient-text bg-gradient-to-r from-primary-300 to-white">Almacenamiento</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+          Maximiza el espacio en tu cocina con sistemas de almacenamiento inteligente y funcional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <Package class="w-8 h-8 text-accent-500" />
+            <h2 class="font-display text-4xl font-bold">Características</h2>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Sistemas de almacenamiento a medida</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Optimización del espacio disponible</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Organización inteligente de utensilios</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Acceso fácil y práctico a todo</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Diseño personalizado según tus necesidades</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl overflow-hidden relative h-full min-h-[400px]">
+          <img 
+            src="/Gemini_Generated_Image_qkuj5kqkuj5kqkuj.png" 
+            alt="Sistemas de almacenamiento inteligente para cocina"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-8">
+            <p class="text-white text-lg font-semibold">
+              Cada espacio cuenta. Diseñamos soluciones que aprovechan cada centímetro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center bg-white rounded-2xl p-12 shadow-xl border border-secondary-300">
+        <h2 class="font-display text-4xl font-bold mb-4">¿Necesitas más espacio?</h2>
+        <p class="text-xl text-secondary-700 mb-8 font-medium">
+          Contáctanos para diseñar la solución de almacenamiento perfecta para ti.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#cotizar" class="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2">
+            Solicitar cotización
+            <ArrowRight class="w-5 h-5" />
+          </a>
+          <WhatsAppButton variant="inline" className="text-lg px-8 py-4" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import ContactForm from '../components/ContactForm';
+import { ArrowRight, CheckCircle, Phone, MessageCircle, Mail } from 'lucide-react';
+---
+
+<BaseLayout title="Mis Primeros Pasos" description="Guía para comenzar tu proyecto de cocina o remodelación con nosotros.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Primeros pasos en tu proyecto"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Mis Primeros<br />
+          <span class="gradient-text bg-gradient-to-r from-primary-300 to-white">Pasos</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+          Comienza tu proyecto de manera sencilla. Te guiamos paso a paso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-8">
+          <div class="bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                1
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold mb-3">Contáctanos</h3>
+                <p class="text-dark-600 text-lg mb-4">
+                  Elige el método que prefieras para contactarnos:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <a href="https://wa.me/56964295258" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                    <MessageCircle class="w-5 h-5" />
+                    <span>WhatsApp</span>
+                  </a>
+                  <a href="tel:+56964295258" class="bg-accent-600 hover:bg-accent-700 text-white p-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                    <Phone class="w-5 h-5" />
+                    <span>Llamar</span>
+                  </a>
+                  <a href="mailto:contacto@muebleriacasablanca.cl" class="bg-accent-600 hover:bg-accent-700 text-white p-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                    <Mail class="w-5 h-5" />
+                    <span>Email</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                2
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold mb-3">Consulta Inicial</h3>
+                <p class="text-dark-600 text-lg">
+                  Comparte tus ideas, necesidades y expectativas. Te asesoramos sobre las mejores opciones para tu proyecto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                3
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold mb-3">Visita y Cotización</h3>
+                <p class="text-dark-600 text-lg">
+                  Realizamos una visita para tomar medidas y preparar una cotización detallada adaptada a tu presupuesto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                4
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold mb-3">Aprobación y Fabricación</h3>
+                <p class="text-dark-600 text-lg">
+                  Una vez aprobado el proyecto, comenzamos la fabricación con los más altos estándares de calidad.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                5
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold mb-3">Instalación y Entrega</h3>
+                <p class="text-dark-600 text-lg">
+                  Instalamos tu proyecto con precisión y cuidado, asegurando tu completa satisfacción.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section id="cotizar" class="section-padding bg-gradient-to-br from-secondary-800 to-secondary-700 text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/Gemini_Generated_Image_6zzvha6zzvha6zzv.png" 
+        alt="Formulario de contacto"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          ¿Listo para comenzar?
+        </h2>
+        <p class="text-xl text-primary-100 mb-12">
+          Completa el formulario y nos pondremos en contacto contigo.
+        </p>
+        
+        <div class="bg-white rounded-2xl p-8 md:p-12 text-dark-900 shadow-2xl">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { ArrowRight, Lightbulb, Ruler, Palette, Hammer, CheckCircle } from 'lucide-react';
+---
+
+<BaseLayout title="Proceso Creativo" description="Conoce nuestro proceso de diseño y fabricación paso a paso.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-dark-900 via-primary-900 to-dark-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Proceso de diseño y fabricación"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-900/90 via-primary-900/85 to-dark-900/90"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Nuestro<br />
+          <span class="gradient-text bg-gradient-to-r from-primary-300 to-white">Proceso Creativo</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+          Desde la idea inicial hasta la entrega final, trabajamos contigo en cada etapa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="max-w-5xl mx-auto">
+        <div class="space-y-12">
+          <!-- Step 1 -->
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0 w-20 h-20 bg-accent-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+              1
+            </div>
+            <div class="flex-1 bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+              <div class="flex items-center gap-4 mb-4">
+                <Lightbulb class="w-8 h-8 text-accent-500" />
+                <h3 class="font-display text-2xl font-bold">Consulta Inicial</h3>
+              </div>
+              <p class="text-dark-600 text-lg">
+                Escuchamos tus ideas, necesidades y expectativas. Analizamos el espacio disponible 
+                y te asesoramos sobre las mejores opciones para tu proyecto.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0 w-20 h-20 bg-accent-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+              2
+            </div>
+            <div class="flex-1 bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+              <div class="flex items-center gap-4 mb-4">
+                <Ruler class="w-8 h-8 text-accent-500" />
+                <h3 class="font-display text-2xl font-bold">Levantamiento y Diseño</h3>
+              </div>
+              <p class="text-dark-600 text-lg">
+                Realizamos el levantamiento de medidas y creamos un diseño personalizado que refleje 
+                tu estilo y optimice el espacio disponible.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0 w-20 h-20 bg-accent-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+              3
+            </div>
+            <div class="flex-1 bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+              <div class="flex items-center gap-4 mb-4">
+                <Palette class="w-8 h-8 text-accent-500" />
+                <h3 class="font-display text-2xl font-bold">Selección de Materiales</h3>
+              </div>
+              <p class="text-dark-600 text-lg">
+                Te ayudamos a elegir materiales, colores y acabados que se adapten a tu presupuesto 
+                y estilo de vida.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0 w-20 h-20 bg-accent-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+              4
+            </div>
+            <div class="flex-1 bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+              <div class="flex items-center gap-4 mb-4">
+                <Hammer class="w-8 h-8 text-accent-500" />
+                <h3 class="font-display text-2xl font-bold">Fabricación e Instalación</h3>
+              </div>
+              <p class="text-dark-600 text-lg">
+                Fabricamos tu proyecto con los más altos estándares de calidad y lo instalamos 
+                con precisión y cuidado en tu espacio.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0 w-20 h-20 bg-accent-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+              5
+            </div>
+            <div class="flex-1 bg-white rounded-2xl p-8 border border-dark-300 shadow-lg">
+              <div class="flex items-center gap-4 mb-4">
+                <CheckCircle class="w-8 h-8 text-accent-500" />
+                <h3 class="font-display text-2xl font-bold">Entrega y Garantía</h3>
+              </div>
+              <p class="text-dark-600 text-lg">
+                Realizamos la entrega final y te brindamos garantía en todos nuestros trabajos, 
+                asegurando tu completa satisfacción.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-gradient-to-br from-primary-900 to-dark-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Iniciar proyecto"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-dark-900/90 to-dark-900/95"></div>
+    </div>
+    <div class="container-custom text-center relative z-10">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        ¿Listo para comenzar tu proyecto?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8">
+        Contáctanos y te guiaremos en cada paso del proceso.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#cotizar" class="bg-white text-accent-600 hover:bg-accent-50 font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+          Iniciar proyecto
+          <ArrowRight class="w-5 h-5" />
+        </a>
+        <WhatsAppButton variant="inline" className="text-lg px-8 py-4" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

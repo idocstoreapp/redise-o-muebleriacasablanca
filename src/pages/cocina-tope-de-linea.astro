@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+---
+
+<BaseLayout title="Cocina Top de Línea" description="Cocinas de lujo refinadas, funcionales y modernas. Lo mejor en diseño y calidad.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Cocina de lujo premium"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Cocina<br />
+          <span class="gradient-text bg-gradient-to-r from-primary-300 to-white">Top de Línea</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+          Refinada, funcional y moderna. Lo mejor en diseño y calidad premium para tu hogar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <Sparkles class="w-8 h-8 text-accent-500" />
+            <h2 class="font-display text-4xl font-bold">Características Premium</h2>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Materiales de lujo y acabados excepcionales</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Diseño exclusivo y personalizado</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Tecnología de vanguardia integrada</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Herrajes y accesorios de alta gama</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-accent-500 flex-shrink-0 mt-1" />
+              <span class="text-lg text-secondary-700">Asesoría personalizada en cada etapa</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl overflow-hidden relative h-full min-h-[400px]">
+          <img 
+            src="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
+            alt="Cocina de lujo con acabados premium"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-8">
+            <p class="text-white text-lg font-semibold">
+              La excelencia en cada detalle. Espacios que reflejan tu estilo de vida.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center bg-white rounded-2xl p-12 shadow-xl border border-secondary-300">
+        <h2 class="font-display text-4xl font-bold mb-4">¿Buscas lo mejor?</h2>
+        <p class="text-xl text-secondary-700 mb-8 font-medium">
+          Contáctanos para cotizar tu cocina top de línea personalizada.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#cotizar" class="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2">
+            Solicitar cotización
+            <ArrowRight class="w-5 h-5" />
+          </a>
+          <WhatsAppButton variant="inline" className="text-lg px-8 py-4" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

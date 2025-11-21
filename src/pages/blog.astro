@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ArrowRight, Calendar } from 'lucide-react';
+---
+
+<BaseLayout title="Blog" description="Últimas novedades en diseño y renovación de espacios.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Blog de diseño"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Blog
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-100 leading-relaxed">
+          Disfruta de nuestras últimas novedades en diseño y renovación de espacios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="section-padding bg-dark-100">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Blog post placeholders -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover border border-dark-200">
+          <div class="h-48 relative overflow-hidden">
+            <img 
+              src="/Gemini_Generated_Image_qkuj5kqkuj5kqkuj.png" 
+              alt="Iluminación de cocinas"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-dark-500 text-sm mb-3">
+              <Calendar class="w-4 h-4" />
+              <span>15 Enero 2024</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3">Iluminación de Cocinas</h3>
+            <p class="text-dark-600 mb-4">
+              Descubre cómo la iluminación correcta puede transformar completamente tu cocina.
+            </p>
+            <a href="/iluminacion-de-cocinas" class="text-accent-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+              Leer más
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover border border-dark-200">
+          <div class="h-48 relative overflow-hidden">
+            <img 
+              src="/Gemini_Generated_Image_taxf2gtaxf2gtaxf.png" 
+              alt="Tiradores de cocina"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-dark-500 text-sm mb-3">
+              <Calendar class="w-4 h-4" />
+              <span>10 Enero 2024</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3">Tiradores de Cocina</h3>
+            <p class="text-dark-600 mb-4">
+              Guía completa para elegir los tiradores perfectos que complementen tu diseño.
+            </p>
+            <a href="/tiradores-de-cocina-modernos" class="text-primary-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+              Leer más
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover border border-dark-200">
+          <div class="h-48 relative overflow-hidden">
+            <img 
+              src="/Gemini_Generated_Image_u5cp1nu5cp1nu5cp.png" 
+              alt="Cajones premium"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-dark-500 text-sm mb-3">
+              <Calendar class="w-4 h-4" />
+              <span>5 Enero 2024</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3">Cajones Premium</h3>
+            <p class="text-dark-600 mb-4">
+              Todo lo que necesitas saber sobre sistemas de cajones con cierre suave.
+            </p>
+            <a href="/cajones" class="text-primary-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+              Leer más
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover border border-dark-200">
+          <div class="h-48 relative overflow-hidden">
+            <img 
+              src="/Gemini_Generated_Image_taxf2gtaxf2gtaxf.png" 
+              alt="Almacenamiento inteligente"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-dark-500 text-sm mb-3">
+              <Calendar class="w-4 h-4" />
+              <span>1 Enero 2024</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-3">Almacenamiento</h3>
+            <p class="text-dark-600 mb-4">
+              Maximiza el espacio en tu cocina con soluciones de almacenamiento inteligente.
+            </p>
+            <a href="/almacenamiento" class="text-primary-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+              Leer más
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

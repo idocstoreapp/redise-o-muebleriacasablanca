@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { Heart, Target, Lightbulb, Handshake } from 'lucide-react';
+---
+
+<BaseLayout title="Conócenos" description="Conoce más sobre Mueblería Casa Blanca, nuestros valores y compromiso con la calidad.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 text-white section-padding relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Taller de mueblería"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-8 flex justify-center">
+          <div class="relative inline-block p-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+            <img 
+              src="/logo.png" 
+              alt="Mueblería Casa Blanca" 
+              class="h-20 md:h-28 w-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] filter brightness-120 contrast-125 hover:brightness-130 transition-all duration-300"
+              style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,255,255,0.4)) brightness(1.2) contrast(1.25);"
+            />
+          </div>
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl font-black mb-6">
+          Bienvenidos a<br />
+          <span class="gradient-text bg-gradient-to-r from-accent-400 via-accent-300 to-white">Mueblería Casa Blanca</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white leading-relaxed font-medium drop-shadow-lg">
+          Diseños exclusivos y a medida para tu hogar o negocio.<br />
+          Fabricación y remodelación con calidad experta en cada detalle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          <h2 class="font-display text-4xl font-bold mb-6 text-center">Nuestra Historia</h2>
+          <p class="text-lg text-secondary-600 leading-relaxed mb-6">
+            En Mueblería Casa Blanca nos especializamos en la fabricación y remodelación de proyectos innovadores, 
+            adaptándonos tanto para espacios residenciales como comerciales: cocinas, closets, locales, retail, 
+            constructoras y proyectos del estado.
+          </p>
+          <p class="text-lg text-secondary-600 leading-relaxed mb-6">
+            Ofrecemos diseños exclusivos y personalizados para satisfacer las necesidades del cliente, realizando 
+            una cotización detallada en un tiempo breve, dependiendo la complejidad de la misma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Nuestros Valores</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-2xl card-hover text-center border border-secondary-300 shadow-lg">
+          <div class="w-16 h-16 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Heart class="w-8 h-8 text-white" />
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-3">Pasión</h3>
+          <p class="text-secondary-600">Amamos lo que hacemos y se refleja en cada proyecto.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover text-center border border-secondary-300 shadow-lg">
+          <div class="w-16 h-16 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Target class="w-8 h-8 text-white" />
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-3">Calidad</h3>
+          <p class="text-secondary-600">Comprometidos con la excelencia en cada detalle.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover text-center border border-secondary-300 shadow-lg">
+          <div class="w-16 h-16 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Lightbulb class="w-8 h-8 text-white" />
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-3">Innovación</h3>
+          <p class="text-secondary-600">Siempre buscando nuevas soluciones y diseños.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-hover text-center border border-secondary-300 shadow-lg">
+          <div class="w-16 h-16 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Handshake class="w-8 h-8 text-white" />
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-3">Compromiso</h3>
+          <p class="text-secondary-600">Tu satisfacción es nuestra prioridad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-gradient-to-br from-secondary-800 to-secondary-700 text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/Gemini_Generated_Image_5hacl35hacl35hac.png" 
+        alt="Contacto"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom text-center relative z-10">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        ¿Tienes un proyecto en mente?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8">
+        Contáctanos y trabajemos juntos en hacer realidad tus ideas.
+      </p>
+      <WhatsAppButton variant="inline" className="text-lg px-8 py-4" />
+    </div>
+  </section>
+</BaseLayout>
+

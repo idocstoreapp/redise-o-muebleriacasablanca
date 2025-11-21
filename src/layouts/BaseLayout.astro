@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import MobileNavBar from '../components/MobileNavBar';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Diseños exclusivos y a medida para tu hogar o negocio. Fabricación y remodelación de cocinas, closets y espacios comerciales.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>{title} | Mueblería Casa Blanca</title>
+  </head>
+  <body class="bg-cream-300 text-secondary-900 antialiased">
+    <Header client:load />
+    <slot />
+    <MobileNavBar client:load />
+    <Footer />
+  </body>
+</html>
+

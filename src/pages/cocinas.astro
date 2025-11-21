@@ -1,0 +1,411 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import ContactForm from '../components/ContactForm';
+import TestimonialsCarousel from '../components/TestimonialsCarousel';
+import TrustBanner from '../components/TrustBanner';
+import FAQ from '../components/FAQ';
+import HowItWorks from '../components/HowItWorks';
+import ProjectsGallery from '../components/ProjectsGallery';
+import BenefitsCarousel from '../components/BenefitsCarousel';
+import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, Shield } from 'lucide-react';
+---
+
+<BaseLayout title="Cocinas a Medida" description="Diseño y fabricación de cocinas personalizadas. Materiales premium, entrega puntual y resultados excepcionales. Cotiza tu cocina ideal.">
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
+    <div class="absolute inset-0">
+      <img 
+        src="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
+        alt="Cocina a medida elegante"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <!-- Overlay suave para legibilidad -->
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-900/60 via-secondary-800/50 to-secondary-900/60 backdrop-blur-[1px]"></div>
+    </div>
+    
+    <div class="container-custom relative z-10 text-center">
+      <div class="max-w-4xl mx-auto px-4">
+        <!-- Logo -->
+        <div class="mb-6 md:mb-10 flex justify-center mt-4 md:mt-8">
+          <div class="relative inline-block p-1 md:p-2 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+            <img 
+              src="/logo-blaco.png" 
+              alt="Mueblería Casa Blanca" 
+              class="h-20 md:h-32 w-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] filter brightness-120 contrast-125"
+              style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,255,255,0.4)) brightness(1.2) contrast(1.25);"
+              onerror="this.src='/logo-blanco.png'; this.onerror=null;"
+            />
+          </div>
+        </div>
+        
+        <!-- H1 -->
+        <h1 class="font-sans text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-[1.1] tracking-tight drop-shadow-2xl text-white">
+          Cocinas a Medida
+        </h1>
+        
+        <!-- Subtítulo -->
+        <p class="font-sans text-base md:text-lg lg:text-xl text-white/95 mb-8 md:mb-10 leading-relaxed font-normal drop-shadow-lg max-w-2xl mx-auto">
+          Diseño personalizado que transforma tu espacio. Materiales premium y entrega puntual garantizada.
+        </p>
+        
+        <!-- Microcopy -->
+        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12 text-white/90 font-sans">
+          <span class="text-sm md:text-base font-medium">+300 cocinas entregadas</span>
+          <span class="text-white/60 text-sm md:text-base">·</span>
+          <span class="text-sm md:text-base font-medium">4-6 semanas de entrega</span>
+        </div>
+        
+        <!-- Botones mejorados -->
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pb-4">
+          <a 
+            href="#cotizar" 
+            class="bg-primary-500 hover:bg-primary-600 text-white font-sans font-semibold text-sm md:text-base px-8 md:px-10 py-3.5 md:py-4 rounded-xl uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 min-w-[180px] sm:min-w-[200px] group"
+            aria-label="Cotizar mi cocina"
+          >
+            Cotizar mi cocina
+            <ArrowRight class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+          <WhatsAppButton variant="inline" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-sans font-semibold text-sm md:text-base px-8 md:px-10 py-3.5 md:py-4 rounded-xl uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-w-[180px] sm:min-w-[200px]" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Banner -->
+  <TrustBanner client:load />
+
+  <!-- Benefits Section -->
+  <section class="section-padding bg-cream-300 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-cream-300 via-cream-200/50 to-cream-300"></div>
+    <div class="container-custom relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+          Por qué elegir nuestras cocinas
+        </h2>
+        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+          Soluciones personalizadas que se adaptan a tu estilo de vida
+        </p>
+      </div>
+
+      <BenefitsCarousel 
+        client:load
+        benefits={[
+          {
+            iconName: 'ChefHat',
+            title: 'Diseño Personalizado',
+            description: 'Cada cocina diseñada específicamente para tu espacio y necesidades.'
+          },
+          {
+            iconName: 'Award',
+            title: 'Materiales Premium',
+            description: 'Solo utilizamos materiales de primera calidad para garantizar durabilidad.'
+          },
+          {
+            iconName: 'Clock',
+            title: 'Entrega Puntual',
+            description: 'Cumplimos rigurosamente los plazos acordados sin excepción.'
+          }
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Projects Gallery -->
+  <ProjectsGallery 
+    client:load
+    projects={[
+      { id: 1, image: '/cocinas/cocina1.JPG', alt: 'Cocina a medida 1' },
+      { id: 2, image: '/cocinas/cocina2.png', alt: 'Cocina a medida 2' },
+      { id: 3, image: '/cocinas/IMG_1456.jpg', alt: 'Cocina a medida 3' },
+      { id: 4, image: '/cocinas/IMG_2519.JPEG', alt: 'Cocina a medida 4' },
+      { id: 5, image: '/cocinas/IMG_3207.JPG', alt: 'Cocina a medida 5' },
+      { id: 6, image: '/cocinas/IMG_3243.JPG', alt: 'Cocina a medida 6' },
+      { id: 7, image: '/cocinas/IMG_3274.JPG', alt: 'Cocina a medida 7' },
+      { id: 8, image: '/cocinas/feed-insta-4-5-1080x-1350.jpg', alt: 'Cocina a medida 8' },
+      { id: 9, image: '/cocinas/Gemini_Generated_Image_mljzfkmljzfkmljz.png', alt: 'Cocina a medida 9' },
+      { id: 10, image: '/cocinas/Gemini_Generated_Image_yorkeqyorkeqyork.png', alt: 'Cocina a medida 10' },
+    ]}
+    title="Nuestros proyectos de cocinas"
+    serviceType="cocina"
+  />
+
+  <!-- Types of Kitchens -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+          Tipos de cocinas
+        </h2>
+        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+          Encuentra el estilo perfecto para tu hogar
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/cocina-tradicional" class="group">
+          <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-xl">
+            <div class="h-64 relative overflow-hidden">
+              <img 
+                src="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
+                alt="Cocina tradicional"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/70 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <h3 class="font-display text-2xl font-bold text-white mb-2">Tradicional</h3>
+                <p class="text-white/90 text-sm">Elegancia atemporal</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/cocina-moderna" class="group">
+          <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-xl">
+            <div class="h-64 relative overflow-hidden">
+              <img 
+                src="/Gemini_Generated_Image_jeq0kqjeq0kqjeq0.png" 
+                alt="Cocina moderna"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/70 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <h3 class="font-display text-2xl font-bold text-white mb-2">Moderna</h3>
+                <p class="text-white/90 text-sm">Estilo vanguardista</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/cocina-tope-de-linea" class="group">
+          <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-xl">
+            <div class="h-64 relative overflow-hidden">
+              <img 
+                src="/Gemini_Generated_Image_mljzfkmljzfkmljz.png" 
+                alt="Cocina premium"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/70 to-transparent"></div>
+              <div class="absolute top-4 left-4">
+                <span class="bg-accent-400 px-3 py-1 rounded-full text-xs font-bold text-secondary-900">Premium</span>
+              </div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <h3 class="font-display text-2xl font-bold text-white mb-2">Top de Línea</h3>
+                <p class="text-white/90 text-sm">Máxima calidad</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section - Soluciones de Cocina -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-secondary-950">
+          Soluciones integrales para tu cocina
+        </h2>
+        <p class="text-base md:text-lg text-secondary-700 max-w-2xl mx-auto font-medium">
+          Cada detalle cuenta. Soluciones que mejoran funcionalidad y diseño.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <!-- Iluminación -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/iluminacion/ilumin-6-1024x659.png"
+              alt="Iluminación de cocinas"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+              onerror="this.src='/iluminacion/ilumin-colage-1-1024x955.png'; this.onerror=null;"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Iluminación
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                LED integrada para funcionalidad y diseño
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Iluminación de techo y encimeras</li>
+                <li>• LED en cajones y estanterías</li>
+                <li>• Bajo consumo energético</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tiradores -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/tiradores de cocina/Tiradores-de-Cocina-1024x546.jpg"
+              alt="Tiradores de cocina"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Tiradores
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                Modernos, minimalistas o con gola
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Tiradores visibles de diseño</li>
+                <li>• Sistema gola sin tiradores</li>
+                <li>• Múltiples acabados disponibles</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cajones -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/cajones/cocina-3-1024x546.png"
+              alt="Cajones para cocina"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Cajones
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                Sistemas organizados y funcionales
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Cierre suave y extracción completa</li>
+                <li>• Organizadores internos personalizados</li>
+                <li>• Diferentes capacidades</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Almacenamiento -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/almacenamiento/Portada-Almacenamiento-1024x546.jpg"
+              alt="Almacenamiento de cocina"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Almacenamiento
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                Máximo aprovechamiento del espacio
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Estanterías ajustables</li>
+                <li>• Rincón optimizado</li>
+                <li>• Soluciones a medida</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <HowItWorks client:load />
+
+  <!-- Testimonials -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+          Lo que dicen nuestros clientes
+        </h2>
+        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+          Experiencias reales de clientes satisfechos
+        </p>
+      </div>
+      <TestimonialsCarousel client:load />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cotizar" class="section-padding bg-gradient-to-br from-secondary-800 to-secondary-700 text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/hero.png" 
+        alt="Cocina moderna"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          ¿Listo para tu cocina ideal?
+        </h2>
+        <p class="text-xl text-primary-100 mb-12">
+          Completa el formulario y te contactaremos para cotizar tu cocina personalizada.
+        </p>
+        
+        <div class="bg-white rounded-2xl p-8 md:p-12 text-secondary-900 shadow-2xl">
+          <ContactForm client:load />
+        </div>
+
+        <!-- Google Maps -->
+        <div class="mt-12">
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-secondary-200">
+            <div class="w-full h-96 md:h-[500px]">
+              <iframe
+                src="https://www.google.com/maps?q=Santa+Elena+803,+Santiago,+Chile&output=embed"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación Mueblería Casa Blanca - Santa Elena 803, Santiago"
+              ></iframe>
+            </div>
+            <div class="p-6 bg-cream-100 border-t border-secondary-200">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                  <h3 class="font-display text-xl font-bold text-secondary-950 mb-2">Nuestra ubicación</h3>
+                  <p class="text-secondary-700 font-medium">Santa Elena 803, Santiago, Chile</p>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Santa+Elena+803,Santiago,Chile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary inline-flex items-center gap-2"
+                >
+                  <span>Abrir en Google Maps</span>
+                  <ArrowRight class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ client:load />
+</BaseLayout>
+

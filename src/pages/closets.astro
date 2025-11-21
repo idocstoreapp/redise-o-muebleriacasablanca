@@ -1,0 +1,391 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton';
+import ContactForm from '../components/ContactForm';
+import TestimonialsCarousel from '../components/TestimonialsCarousel';
+import TrustBanner from '../components/TrustBanner';
+import FAQ from '../components/FAQ';
+import HowItWorks from '../components/HowItWorks';
+import ProjectsGallery from '../components/ProjectsGallery';
+import BenefitsCarousel from '../components/BenefitsCarousel';
+import { ArrowRight, CheckCircle, Star, Clock, Award, Package, Palette, Wrench, Shield } from 'lucide-react';
+---
+
+<BaseLayout title="Closets a Medida" description="Closets personalizados que maximizan tu espacio. Diseño funcional, materiales premium y organización inteligente. Cotiza tu closet ideal.">
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
+    <div class="absolute inset-0">
+      <img 
+        src="/Gemini_Generated_Image_qkuj5kqkuj5kqkuj.png" 
+        alt="Closet a medida elegante"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <!-- Overlay suave para legibilidad -->
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-900/60 via-secondary-800/50 to-secondary-900/60 backdrop-blur-[1px]"></div>
+    </div>
+    
+    <div class="container-custom relative z-10 text-center">
+      <div class="max-w-4xl mx-auto px-4">
+        <!-- Logo -->
+        <div class="mb-6 md:mb-10 flex justify-center mt-4 md:mt-8">
+          <div class="relative inline-block p-1 md:p-2 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+            <img 
+              src="/logo-blaco.png" 
+              alt="Mueblería Casa Blanca" 
+              class="h-20 md:h-32 w-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] filter brightness-120 contrast-125"
+              style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,255,255,0.4)) brightness(1.2) contrast(1.25);"
+              onerror="this.src='/logo-blanco.png'; this.onerror=null;"
+            />
+          </div>
+        </div>
+        
+        <!-- H1 -->
+        <h1 class="font-sans text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-[1.1] tracking-tight drop-shadow-2xl text-white">
+          Closets a Medida
+        </h1>
+        
+        <!-- Subtítulo -->
+        <p class="font-sans text-base md:text-lg lg:text-xl text-white/95 mb-8 md:mb-10 leading-relaxed font-normal drop-shadow-lg max-w-2xl mx-auto">
+          Maximiza tu espacio con closets personalizados. Organización inteligente y diseño funcional.
+        </p>
+        
+        <!-- Microcopy -->
+        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12 text-white/90 font-sans">
+          <span class="text-sm md:text-base font-medium">+150 closets entregados</span>
+          <span class="text-white/60 text-sm md:text-base">·</span>
+          <span class="text-sm md:text-base font-medium">3-5 semanas de entrega</span>
+        </div>
+        
+        <!-- Botones mejorados -->
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pb-4">
+          <a 
+            href="#cotizar" 
+            class="bg-primary-500 hover:bg-primary-600 text-white font-sans font-semibold text-sm md:text-base px-8 md:px-10 py-3.5 md:py-4 rounded-xl uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 min-w-[180px] sm:min-w-[200px] group"
+            aria-label="Cotizar mi closet"
+          >
+            Cotizar mi closet
+            <ArrowRight class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+          <WhatsAppButton variant="inline" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-sans font-semibold text-sm md:text-base px-8 md:px-10 py-3.5 md:py-4 rounded-xl uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-w-[180px] sm:min-w-[200px]" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Banner -->
+  <TrustBanner client:load />
+
+  <!-- Benefits Section -->
+  <section class="section-padding bg-cream-300 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-cream-300 via-cream-200/50 to-cream-300"></div>
+    <div class="container-custom relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+          Por qué elegir nuestros closets
+        </h2>
+        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+          Soluciones de almacenamiento que se adaptan a tu espacio
+        </p>
+      </div>
+
+      <BenefitsCarousel 
+        client:load
+        benefits={[
+          {
+            iconName: 'Package',
+            title: 'Máximo Aprovechamiento',
+            description: 'Optimizamos cada centímetro de tu espacio para máximo almacenamiento.'
+          },
+          {
+            iconName: 'Palette',
+            title: 'Diseño Personalizado',
+            description: 'Cada closet diseñado según tus necesidades y estilo personal.'
+          },
+          {
+            iconName: 'Award',
+            title: 'Calidad Superior',
+            description: 'Materiales resistentes y acabados impecables que duran años.'
+          }
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Projects Gallery -->
+  <ProjectsGallery 
+    client:load
+    projects={[
+      { id: 1, image: '/closet/closet.mp4', alt: 'Closet a medida - Video' },
+      { id: 2, image: '/closet/Gemini_Generated_Image_6bp8556bp8556bp8.png', alt: 'Closet a medida 1' },
+      { id: 3, image: '/closet/Gemini_Generated_Image_cjqpkxcjqpkxcjqp.png', alt: 'Closet a medida 2' },
+      { id: 4, image: '/closet/unnamed.jpg', alt: 'Closet a medida 3' },
+    ]}
+    title="Nuestros proyectos de closets"
+    serviceType="closet"
+  />
+
+  <!-- Features Section -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+          Características de nuestros closets
+        </h2>
+        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+          Todo lo que necesitas para organizar tu espacio
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-cream-100 p-8 rounded-2xl">
+          <h3 class="font-display text-2xl font-bold mb-4 text-secondary-950">Sistemas de Organización</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Barras para colgar ropa ajustables</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Cajones con sistema de cierre suave</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Estantes modulares y ajustables</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Espacios para zapatos y accesorios</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-cream-100 p-8 rounded-2xl">
+          <h3 class="font-display text-2xl font-bold mb-4 text-secondary-950">Opciones de Diseño</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Puertas corredizas o abatibles</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Múltiples acabados y colores</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Iluminación LED integrada</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle class="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
+              <span class="text-secondary-800 font-medium">Espejos y accesorios opcionales</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section - Soluciones Integrales para Closets -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-secondary-950">
+          Soluciones integrales para tu closet
+        </h2>
+        <p class="text-base md:text-lg text-secondary-700 max-w-2xl mx-auto font-medium">
+          Cada detalle cuenta. Soluciones que maximizan tu espacio y organización.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <!-- Organización -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/closet/Gemini_Generated_Image_6bp8556bp8556bp8.png"
+              alt="Sistemas de organización para closets"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Organización
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                Sistemas ajustables y modulares
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Barras colgantes ajustables en altura</li>
+                <li>• Estantes modulares y regulables</li>
+                <li>• Cajones con cierre suave</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Puertas -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/closet/Gemini_Generated_Image_cjqpkxcjqpkxcjqp.png"
+              alt="Puertas para closets"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Puertas
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                Corredizas, abatibles o con espejos
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Puertas corredizas para ahorrar espacio</li>
+                <li>• Puertas abatibles tradicionales</li>
+                <li>• Espejos integrados opcionales</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Iluminación -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/closet/unnamed.jpg"
+              alt="Iluminación LED para closets"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Iluminación
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                LED integrada para mejor visibilidad
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Tiras LED bajo estantes</li>
+                <li>• Iluminación automática al abrir</li>
+                <li>• Bajo consumo energético</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Espacios Especializados -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg card-hover">
+          <div class="aspect-[4/3] relative overflow-hidden bg-secondary-200">
+            <img
+              src="/closet/Gemini_Generated_Image_6bp8556bp8556bp8.png"
+              alt="Espacios especializados en closets"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+              <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                Espacios Especializados
+              </h3>
+              <p class="text-white/95 text-sm md:text-base font-medium drop-shadow-md mb-2">
+                Zonas dedicadas para cada prenda
+              </p>
+              <ul class="text-white/90 text-xs md:text-sm space-y-1 font-medium">
+                <li>• Área para zapatos y accesorios</li>
+                <li>• Compartimentos para ropa doblada</li>
+                <li>• Soluciones para cinturones y corbatas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <HowItWorks client:load />
+
+  <!-- Testimonials -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+          Lo que dicen nuestros clientes
+        </h2>
+        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+          Experiencias reales de clientes satisfechos
+        </p>
+      </div>
+      <TestimonialsCarousel client:load />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cotizar" class="section-padding bg-gradient-to-br from-secondary-800 to-secondary-700 text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/Gemini_Generated_Image_qkuj5kqkuj5kqkuj.png" 
+        alt="Closet a medida"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-secondary-800/85 via-secondary-700/80 to-secondary-800/85"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          ¿Listo para tu closet ideal?
+        </h2>
+        <p class="text-xl text-primary-100 mb-12">
+          Completa el formulario y te contactaremos para cotizar tu closet personalizado.
+        </p>
+        
+        <div class="bg-white rounded-2xl p-8 md:p-12 text-secondary-900 shadow-2xl">
+          <ContactForm client:load />
+        </div>
+
+        <!-- Google Maps -->
+        <div class="mt-12">
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-secondary-200">
+            <div class="w-full h-96 md:h-[500px]">
+              <iframe
+                src="https://www.google.com/maps?q=Santa+Elena+803,+Santiago,+Chile&output=embed"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación Mueblería Casa Blanca - Santa Elena 803, Santiago"
+              ></iframe>
+            </div>
+            <div class="p-6 bg-cream-100 border-t border-secondary-200">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                  <h3 class="font-display text-xl font-bold text-secondary-950 mb-2">Nuestra ubicación</h3>
+                  <p class="text-secondary-700 font-medium">Santa Elena 803, Santiago, Chile</p>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Santa+Elena+803,Santiago,Chile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary inline-flex items-center gap-2"
+                >
+                  <span>Abrir en Google Maps</span>
+                  <ArrowRight class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ client:load />
+</BaseLayout>
+
