@@ -18,7 +18,7 @@ const TrustBanner = () => {
   ];
 
   return (
-    <section className="bg-cream-100 border-y border-secondary-200 py-8">
+    <section className="bg-cream-100 border-y border-secondary-200 py-8 md:py-12">
       <div className="container-custom">
         {/* Logos de clientes (scroll infinito) */}
         <div className="mb-6">

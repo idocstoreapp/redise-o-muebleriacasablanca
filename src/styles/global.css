@@ -131,3 +131,22 @@
   animation: slowZoom 8s ease-in-out infinite;
 }
 
+/* Instagram Feed Responsive Styles */
+.elfsight-app-efe488d9-d05a-4543-8503-b921962d68e2 {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .elfsight-app-efe488d9-d05a-4543-8503-b921962d68e2 {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  
+  .elfsight-app-efe488d9-d05a-4543-8503-b921962d68e2 iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+

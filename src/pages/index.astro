@@ -13,7 +13,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
 
 <BaseLayout title="Inicio" description="Cocinas y muebles a medida. Diseño personalizado, materiales premium y entrega puntual. Transforma tus espacios con calidad garantizada.">
   <!-- Hero Section -->
-  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
+  <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-20 md:pb-24">
     <!-- Background Image Carousel -->
     <HeroImageCarousel client:load />
     <!-- Overlay suave para legibilidad -->
@@ -105,14 +105,14 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
           }
         </script>
         <!-- Microcopy -->
-        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12 text-white/90 font-sans">
+        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 md:mb-5 text-white/90 font-sans">
           <span class="text-sm md:text-base font-medium">+500 proyectos completados</span>
           <span class="text-white/60 text-sm md:text-base">·</span>
           <span class="text-sm md:text-base font-medium">Entregas puntuales</span>
         </div>
         
         <!-- Botones mejorados -->
-        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pb-4">
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pb-4 md:pb-12">
           <a 
             href="#cotizar" 
             class="bg-primary-500 hover:bg-primary-600 text-white font-sans font-semibold text-sm md:text-base px-8 md:px-10 py-3.5 md:py-4 rounded-xl uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 min-w-[180px] sm:min-w-[200px] group relative z-20"
@@ -125,17 +125,12 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
         </div>
       </div>
     </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-      <div class="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center">
-        <div class="w-1 h-2 bg-white/50 rounded-full mt-1.5"></div>
-      </div>
-    </div>
   </section>
 
   <!-- Trust Banner -->
-  <TrustBanner client:load />
+  <div class="md:mt-16">
+    <TrustBanner client:load />
+  </div>
 
   <!-- Services Preview -->
   <section class="section-padding bg-cream-300 py-6 md:py-8">
@@ -377,6 +372,24 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Instagram Feed Section -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="font-display text-2xl md:text-4xl font-bold mb-3 md:mb-4 text-secondary-950">
+          Síguenos en Instagram
+        </h2>
+        <p class="text-base md:text-lg text-secondary-700 max-w-2xl mx-auto font-medium">
+          Descubre nuestros últimos proyectos y trabajos realizados
+        </p>
+      </div>
+      <div class="w-full max-w-7xl mx-auto px-4">
+        <div class="elfsight-app-efe488d9-d05a-4543-8503-b921962d68e2" data-elfsight-app-lazy></div>
+      </div>
+    </div>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
   </section>
 
   <!-- Testimonials Section -->
