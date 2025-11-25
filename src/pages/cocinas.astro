@@ -8,6 +8,8 @@ import FAQ from '../components/FAQ';
 import HowItWorks from '../components/HowItWorks';
 import ProjectsGallery from '../components/ProjectsGallery';
 import BenefitsCarousel from '../components/BenefitsCarousel';
+import CotizadorCocinas from '../components/CotizadorCocinas';
+import CatalogoCocinasEmbebido from '../components/CatalogoCocinasEmbebido';
 import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, Shield } from 'lucide-react';
 ---
 
@@ -130,6 +132,26 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
     title="Nuestros proyectos de cocinas"
     serviceType="cocina"
   />
+
+  <!-- Cotizador de Cocinas -->
+  <section class="section-padding bg-cream-300">
+    <div class="container-custom">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4 text-secondary-950">
+          Diseña tu Cocina Ideal
+        </h2>
+        <p class="text-base md:text-lg text-secondary-700 max-w-2xl mx-auto font-medium">
+          Explora nuestro catálogo interactivo y crea la cocina de tus sueños. Personaliza materiales, colores y acabados.
+        </p>
+      </div>
+      <CatalogoCocinasEmbebido 
+        client:load
+        urlCotizador="https://cotizador-app-two.vercel.app/cocinas-publico"
+        altura="900px"
+        className="w-full"
+      />
+    </div>
+  </section>
 
   <!-- Types of Kitchens -->
   <section class="section-padding bg-white">
