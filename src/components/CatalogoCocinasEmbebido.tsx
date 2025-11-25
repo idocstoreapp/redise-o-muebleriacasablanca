@@ -50,12 +50,11 @@ const CatalogoCocinasEmbebido = ({
       className={`w-full max-w-full rounded-2xl shadow-xl border border-secondary-200 bg-white ${className}`}
       style={{ 
         maxWidth: '100%',
-        overflow: 'hidden', // Sin scroll en el contenedor
+        overflow: 'hidden',
         position: 'relative',
         width: '100%',
         height: iframeHeight,
-        zIndex: 1, // Asegurar que esté por encima
-        isolation: 'isolate' // Crear nuevo contexto de apilamiento
+        pointerEvents: 'none' // El contenedor no intercepta eventos
       }}
     >
       <iframe
@@ -73,11 +72,9 @@ const CatalogoCocinasEmbebido = ({
           width: '100%',
           height: '100%',
           minHeight: '600px',
-          position: 'relative',
-          zIndex: 2, // Asegurar que el iframe esté por encima
-          pointerEvents: 'auto' // Asegurar que reciba eventos
+          pointerEvents: 'auto' // Solo el iframe recibe eventos
         }}
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
+        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-pointer-lock"
       />
     </div>
   );
