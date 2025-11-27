@@ -9,6 +9,7 @@ interface Props {
   fetchpriority?: 'high' | 'low' | 'auto';
   sizes?: string;
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+  type?: 'hero' | 'content' | 'thumbnail' | 'logo'; // Tipo de imagen para determinar tamaños
 }
 
 const {
@@ -19,12 +20,48 @@ const {
   className = '',
   loading = 'lazy',
   fetchpriority = 'auto',
-  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
-  objectFit = 'cover'
+  sizes,
+  objectFit = 'cover',
+  type
 } = Astro.props;
 
 // Detectar si es imagen LCP (generalmente la primera imagen del hero)
 const isLCP = loading === 'eager' && fetchpriority === 'high';
+
+// Determinar tamaños según tipo de imagen o inferir del src
+const determineSizes = () => {
+  if (type) {
+    switch (type) {
+      case 'hero':
+        return [800, 1200, 1600, 1920];
+      case 'thumbnail':
+      case 'logo':
+        return [200, 400, 600];
+      case 'content':
+      default:
+        return [400, 600, 800, 1200];
+    }
+  }
+  
+  // Auto-detectar según ruta
+  const srcLower = src.toLowerCase();
+  if (srcLower.includes('hero') || srcLower.includes('gemini_generated_image')) {
+    return [800, 1200, 1600, 1920];
+  }
+  if (srcLower.includes('logo') || srcLower.includes('cliente') || srcLower.includes('marca')) {
+    return [200, 400, 600];
+  }
+  return [400, 600, 800, 1200];
+};
+
+const sizes_for_srcset = determineSizes();
+
+// Determinar sizes attribute si no se proporciona
+const sizesAttribute = sizes || (
+  type === 'hero' ? '100vw' :
+  type === 'logo' || type === 'thumbnail' ? '(max-width: 768px) 150px, 150px' :
+  '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+);
 
 // Generar rutas WebP
 const getWebPPath = (originalPath: string, size?: number) => {
@@ -35,7 +72,6 @@ const getWebPPath = (originalPath: string, size?: number) => {
 };
 
 // Generar srcset para WebP
-const sizes_for_srcset = [400, 800, 1200, 1600];
 const webpSrcset = sizes_for_srcset
   .map((size) => {
     const webpPath = getWebPPath(src, size);
@@ -62,7 +98,7 @@ const aspectRatioStyle = aspectRatio ? `aspect-ratio: ${aspectRatio};` : '';
   {webpSrcset && (
     <source
       srcset={webpSrcset}
-      sizes={sizes}
+      sizes={sizesAttribute}
       type="image/webp"
     />
   )}
@@ -71,7 +107,7 @@ const aspectRatioStyle = aspectRatio ? `aspect-ratio: ${aspectRatio};` : '';
   {fallbackSrcset && (
     <source
       srcset={fallbackSrcset}
-      sizes={sizes}
+      sizes={sizesAttribute}
       type={src.match(/\.(jpg|jpeg)$/i) ? 'image/jpeg' : 'image/png'}
     />
   )}
@@ -92,7 +128,7 @@ const aspectRatioStyle = aspectRatio ? `aspect-ratio: ${aspectRatio};` : '';
       ${width ? `max-width: ${width}px;` : ''}
       ${height ? `max-height: ${height}px;` : ''}
     `}
-    sizes={sizes}
+    sizes={sizesAttribute}
   />
 </picture>
 

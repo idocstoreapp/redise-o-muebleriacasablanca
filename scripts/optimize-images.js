@@ -7,8 +7,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, '..', 'public');
 
-// Tamaños para srcset
-const SIZES = [400, 800, 1200, 1600, 2400];
+// Tamaños para srcset - optimizados para diferentes usos
+// Hero/full-width: 800, 1200, 1600, 1920
+// Cards/content: 400, 600, 800, 1200
+// Thumbnails/small: 200, 400, 600
+const SIZES = {
+  hero: [800, 1200, 1600, 1920],
+  content: [400, 600, 800, 1200],
+  thumbnail: [200, 400, 600],
+  default: [400, 800, 1200, 1600]
+};
 
 // Formatos soportados
 const SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.webp'];
@@ -35,6 +43,29 @@ async function getImageFiles(dir) {
   return files;
 }
 
+// Determinar qué tamaños usar basado en la ruta y tamaño de la imagen
+function determineSizes(imagePath, width) {
+  const pathLower = imagePath.toLowerCase();
+  
+  // Imágenes hero/full-width
+  if (pathLower.includes('hero') || 
+      pathLower.includes('gemini_generated_image') ||
+      width >= 1920) {
+    return SIZES.hero;
+  }
+  
+  // Logos, clientes, marcas (pequeñas)
+  if (pathLower.includes('logo') || 
+      pathLower.includes('cliente') || 
+      pathLower.includes('marca') ||
+      width <= 500) {
+    return SIZES.thumbnail;
+  }
+  
+  // Contenido general
+  return SIZES.content;
+}
+
 async function optimizeImage(inputPath, outputDir) {
   const ext = path.extname(inputPath);
   const basename = path.basename(inputPath, ext);
@@ -54,30 +85,47 @@ async function optimizeImage(inputPath, outputDir) {
     const metadata = await sharp(inputPath).metadata();
     const { width, height } = metadata;
 
-    // Generar WebP original
+    // Determinar tamaños a generar
+    const sizesToGenerate = determineSizes(inputPath, width);
+
+    // Generar WebP original (optimizado, manteniendo proporción)
     const webpPath = path.join(outputBaseDir, `${basename}.webp`);
     await sharp(inputPath)
-      .webp({ quality: 85, effort: 6 })
+      .webp({ 
+        quality: width >= 1200 ? 80 : 85, // Menor calidad para imágenes grandes
+        effort: 6 
+      })
       .toFile(webpPath);
     results.webp.original = path.relative(publicDir, webpPath).replace(/\\/g, '/');
 
     // Generar diferentes tamaños para srcset
-    for (const size of SIZES) {
-      if (size <= width) {
+    const pathLower = inputPath.toLowerCase();
+    for (const size of sizesToGenerate) {
+      // Solo generar si el tamaño es menor que el original
+      if (size < width) {
         const sizeWebpPath = path.join(outputBaseDir, `${basename}-${size}w.webp`);
+        
+        // Para logos/clientes, mantener aspect ratio
+        const isSmall = pathLower.includes('logo') || 
+                       pathLower.includes('cliente') || 
+                       pathLower.includes('marca');
+        
         await sharp(inputPath)
           .resize(size, null, {
             withoutEnlargement: true,
-            fit: 'inside'
+            fit: isSmall ? 'contain' : 'inside'
           })
-          .webp({ quality: 85, effort: 6 })
+          .webp({ 
+            quality: size >= 1200 ? 80 : 85,
+            effort: 6 
+          })
           .toFile(sizeWebpPath);
         
         results.webp[size] = path.relative(publicDir, sizeWebpPath).replace(/\\/g, '/');
       }
     }
 
-    console.log(`✓ Optimizado: ${path.relative(publicDir, inputPath)}`);
+    console.log(`✓ Optimizado: ${path.relative(publicDir, inputPath)} (${width}x${height})`);
     return results;
   } catch (error) {
     console.error(`✗ Error optimizando ${inputPath}:`, error.message);

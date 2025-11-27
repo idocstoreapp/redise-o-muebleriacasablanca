@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 import WhatsAppButton from '../components/WhatsAppButton';
 import ContactForm from '../components/ContactForm';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
@@ -16,15 +17,16 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
   <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-20 md:pb-24 hero-container">
     <!-- Imagen LCP - Renderizada directamente en HTML para descubrimiento inmediato -->
     <div id="lcp-image" class="absolute inset-0 overflow-hidden z-0">
-      <img 
+      <OptimizedImage 
         src="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
         alt="Cocina personalizada"
-        class="w-full h-full object-cover animate-hero-zoom"
+        className="w-full h-full object-cover animate-hero-zoom"
         loading="eager"
         fetchpriority="high"
-        decoding="sync"
-        width="1920"
-        height="1080"
+        width={1920}
+        height={1080}
+        type="hero"
+        sizes="100vw"
       />
     </div>
     <!-- Background Image Carousel - Resto de imágenes cargan después -->
