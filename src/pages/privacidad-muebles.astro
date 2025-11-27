@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Shield, Lock, Eye, FileText, Mail, Phone, MapPin, Sofa } from 'lucide-react';
+---
+
+<BaseLayout title="Política de Privacidad - Muebles" description="Política de privacidad para servicios de muebles a medida de Mueblería Casa Blanca. Conoce cómo protegemos tu información personal.">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="flex justify-center mb-6">
+          <div class="relative">
+            <Shield class="w-16 h-16 md:w-20 md:h-20 text-primary-300" />
+            <Sofa class="w-8 h-8 md:w-10 md:h-10 text-primary-200 absolute -bottom-2 -right-2" />
+          </div>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          Política de Privacidad
+        </h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-2">
+          Servicios de Muebles a Medida
+        </p>
+        <p class="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
+          Tu privacidad es importante para nosotros. Conoce cómo protegemos y utilizamos tu información personal en relación con nuestros servicios de diseño y fabricación de muebles.
+        </p>
+        <p class="text-sm md:text-base text-white/70 mt-4">
+          Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Introducción -->
+        <div class="mb-12">
+          <p class="text-lg text-secondary-700 leading-relaxed mb-6">
+            En <strong>Mueblería Casa Blanca</strong>, nos comprometemos a proteger la privacidad y seguridad de la información personal de nuestros clientes cuando solicitan nuestros servicios de <strong>diseño y fabricación de muebles a medida</strong>. Esta Política de Privacidad describe específicamente cómo recopilamos, utilizamos, almacenamos y protegemos tu información en el contexto de nuestros servicios de muebles personalizados.
+          </p>
+          <p class="text-lg text-secondary-700 leading-relaxed">
+            Al solicitar una cotización, consulta o contratar nuestros servicios de muebles, aceptas las prácticas descritas en esta política. Si no estás de acuerdo con alguna parte de esta política, te recomendamos que no utilices nuestros servicios.
+          </p>
+        </div>
+
+        <!-- 1. Información que Recopilamos -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <Eye class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              1. Información que Recopilamos
+            </h2>
+          </div>
+          
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8 mb-6">
+            <h3 class="font-display text-xl font-bold text-secondary-950 mb-4">
+              1.1. Información del Proyecto de Muebles
+            </h3>
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              Para proporcionarte el mejor servicio de diseño y fabricación de muebles, recopilamos información específica sobre tu proyecto:
+            </p>
+            <ul class="space-y-2 text-secondary-700 ml-6">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Tipo de mueble requerido (estanterías, escritorios, bibliotecas, muebles de sala, etc.)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Dimensiones y medidas del espacio donde se ubicará el mueble</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Preferencias de diseño, estilo y materiales (maderas, laminados, acabados)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Requisitos funcionales específicos (almacenamiento, organización, uso previsto)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Presupuesto estimado y plazos de entrega deseados</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Fotografías o planos del espacio y referencias de diseño (si los proporcionas)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8 mb-6">
+            <h3 class="font-display text-xl font-bold text-secondary-950 mb-4">
+              1.2. Información de Contacto
+            </h3>
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              Recopilamos información de contacto cuando:
+            </p>
+            <ul class="space-y-2 text-secondary-700 ml-6">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Completas el formulario de cotización de muebles en nuestro sitio web</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Te comunicas con nosotros por teléfono, correo electrónico o WhatsApp para consultas sobre muebles</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Solicitas una visita a domicilio para evaluación de tu espacio</span>
+              </li>
+            </ul>
+            <p class="text-secondary-700 leading-relaxed mt-4">
+              Esta información incluye: nombre completo, dirección de correo electrónico, número de teléfono, dirección física donde se instalará el mueble, y cualquier otra información relevante que elijas compartir.
+            </p>
+          </div>
+
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8">
+            <h3 class="font-display text-xl font-bold text-secondary-950 mb-4">
+              1.3. Información Técnica
+            </h3>
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              Automáticamente recopilamos información técnica cuando visitas nuestra página de muebles:
+            </p>
+            <ul class="space-y-2 text-secondary-700 ml-6">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Dirección IP y ubicación geográfica aproximada</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Páginas de muebles visitadas y tiempo de permanencia</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Interacciones con nuestra galería de proyectos de muebles</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. Uso de la Información -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <FileText class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              2. Uso de la Información
+            </h2>
+          </div>
+          
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8">
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              Utilizamos la información recopilada específicamente para:
+            </p>
+            <ul class="space-y-3 text-secondary-700 ml-6">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Diseño personalizado:</strong> Crear diseños de muebles adaptados a tus necesidades, preferencias y espacio disponible</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Cotizaciones precisas:</strong> Elaborar cotizaciones detalladas basadas en tus especificaciones y requerimientos funcionales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Coordinación de visitas:</strong> Programar y coordinar visitas a domicilio para mediciones y evaluación del espacio</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Fabricación e instalación:</strong> Ejecutar el proyecto de mueble, coordinar entregas e instalaciones</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Comunicación:</strong> Mantenerte informado sobre el progreso de tu proyecto de mueble y responder a tus consultas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Mejora del servicio:</strong> Analizar preferencias de diseño para mejorar nuestros servicios de muebles</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. Protección de Datos -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <Lock class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              3. Protección de Datos
+            </h2>
+          </div>
+          
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8">
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger la información de tu proyecto de mueble, incluyendo:
+            </p>
+            <ul class="space-y-2 text-secondary-700 ml-6">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Encriptación de datos sensibles durante la transmisión</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Acceso restringido a información de proyectos solo para personal autorizado</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Almacenamiento seguro de planos, cotizaciones y documentación de proyectos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span>Capacitación continua de nuestro equipo sobre privacidad y seguridad</span>
+              </li>
+            </ul>
+            <p class="text-secondary-700 leading-relaxed mt-4">
+              La información de tu proyecto de mueble se mantiene confidencial y solo se utiliza para los fines descritos en esta política.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. Compartir Información -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <Shield class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              4. Compartir Información
+            </h2>
+          </div>
+          
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8">
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              No compartimos información de tu proyecto de mueble con terceros, excepto:
+            </p>
+            <ul class="space-y-3 text-secondary-700 ml-6">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Proveedores de materiales:</strong> Solo cuando es necesario para la adquisición de materiales específicos de tu mueble, y siempre bajo estrictos acuerdos de confidencialidad</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Subcontratistas autorizados:</strong> Para servicios especializados (acabados, instalación, etc.), siempre con tu conocimiento previo</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-500 font-bold mt-1">•</span>
+                <span><strong>Requisitos legales:</strong> Cuando sea requerido por ley o para proteger nuestros derechos legales</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5. Tus Derechos -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <FileText class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              5. Tus Derechos
+            </h2>
+          </div>
+          
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8">
+            <p class="text-secondary-700 leading-relaxed mb-4">
+              Tienes derecho a acceder, rectificar, eliminar u oponerte al procesamiento de tu información relacionada con tu proyecto de mueble. Para ejercer estos derechos, contáctanos utilizando la información proporcionada al final de esta política.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6. Retención de Datos -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <Lock class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              6. Retención de Datos
+            </h2>
+          </div>
+          
+          <div class="bg-cream-100 rounded-xl p-6 md:p-8">
+            <p class="text-secondary-700 leading-relaxed">
+              Conservamos la información de tu proyecto de mueble durante el tiempo necesario para cumplir con los propósitos descritos y para mantener registros de garantía y servicio post-venta. Los planos y documentación de proyectos se archivan de forma segura según nuestros estándares de retención de documentos.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. Contacto -->
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-primary-100 rounded-lg p-2">
+              <Mail class="w-6 h-6 text-primary-600" />
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-secondary-950">
+              7. Contacto
+            </h2>
+          </div>
+          
+          <div class="bg-gradient-to-br from-secondary-800 to-secondary-700 rounded-xl p-6 md:p-8 text-white">
+            <p class="text-lg leading-relaxed mb-6">
+              Si tienes preguntas sobre esta Política de Privacidad o sobre el manejo de información de tu proyecto de mueble, contáctanos:
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <Mail class="w-5 h-5 text-primary-300 mt-1 flex-shrink-0" />
+                <div>
+                  <p class="font-semibold mb-1">Correo Electrónico</p>
+                  <a href="mailto:contacto@muebleriacasablanca.cl" class="text-primary-200 hover:text-primary-300 transition-colors">
+                    contacto@muebleriacasablanca.cl
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <Phone class="w-5 h-5 text-primary-300 mt-1 flex-shrink-0" />
+                <div>
+                  <p class="font-semibold mb-1">Teléfono</p>
+                  <a href="tel:+56964295258" class="text-primary-200 hover:text-primary-300 transition-colors">
+                    +56 9 6429 5258
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <MapPin class="w-5 h-5 text-primary-300 mt-1 flex-shrink-0" />
+                <div>
+                  <p class="font-semibold mb-1">Dirección</p>
+                  <p class="text-primary-200">
+                    Santa Elena 803, Santiago, Chile
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nota Final -->
+        <div class="bg-primary-50 border-l-4 border-primary-500 rounded-lg p-6 md:p-8">
+          <p class="text-secondary-800 leading-relaxed">
+            <strong>Nota importante:</strong> Esta Política de Privacidad se aplica específicamente a nuestros servicios de diseño y fabricación de muebles a medida. Para información sobre otros servicios, consulta nuestras políticas generales o las políticas específicas de otros servicios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

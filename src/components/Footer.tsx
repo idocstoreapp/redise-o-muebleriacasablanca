@@ -1,6 +1,24 @@
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const Footer = () => {
+  const [privacyLink, setPrivacyLink] = useState({ href: '/privacidad', label: 'Política de Privacidad' });
+
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    
+    // Determinar qué política mostrar según la página actual
+    if (pathname.startsWith('/cocinas') || pathname.includes('/cocina-')) {
+      setPrivacyLink({ href: '/privacidad-cocinas', label: 'Política de Privacidad - Cocinas' });
+    } else if (pathname.startsWith('/closets') || pathname.includes('/closet')) {
+      setPrivacyLink({ href: '/privacidad-closets', label: 'Política de Privacidad - Closets' });
+    } else if (pathname.startsWith('/muebles') || pathname.includes('/mueble')) {
+      setPrivacyLink({ href: '/privacidad-muebles', label: 'Política de Privacidad - Muebles' });
+    } else {
+      setPrivacyLink({ href: '/privacidad', label: 'Política de Privacidad' });
+    }
+  }, []);
+
   return (
     <footer className="bg-secondary-800 text-secondary-100 section-padding pb-24 md:pb-0">
       <div className="container-custom">
@@ -15,7 +33,7 @@ const Footer = () => {
             Diseños exclusivos a medida. Cocinas, closets y espacios comerciales con calidad y puntualidad.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Información de contacto */}
           <div>
             <h3 className="font-display text-xl font-bold mb-4 text-accent-400">Contacto</h3>
@@ -86,6 +104,18 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Políticas de Privacidad */}
+          <div>
+            <h3 className="font-display text-xl font-bold mb-4 text-accent-400">Políticas</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href={privacyLink.href} className="text-secondary-100 hover:text-accent-400 transition-colors">
+                  {privacyLink.label}
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Redes sociales */}
           <div>
             <h3 className="font-display text-xl font-bold mb-4 text-accent-400">Síguenos</h3>
@@ -117,8 +147,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-secondary-600 pt-8 text-center text-secondary-200 text-sm">
-          <p>&copy; {new Date().getFullYear()} Mueblería Casa Blanca. Todos los derechos reservados.</p>
+        <div className="border-t border-secondary-600 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-secondary-200 text-sm">
+            <p>&copy; {new Date().getFullYear()} Mueblería Casa Blanca. Todos los derechos reservados.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href={privacyLink.href} className="hover:text-accent-400 transition-colors">
+                {privacyLink.label}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

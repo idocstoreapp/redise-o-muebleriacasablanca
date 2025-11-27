@@ -8,6 +8,7 @@ import FAQ from '../components/FAQ';
 import HowItWorks from '../components/HowItWorks';
 import ProjectsGallery from '../components/ProjectsGallery';
 import BenefitsCarousel from '../components/BenefitsCarousel';
+import CatalogoMueblesEmbebido from '../components/CatalogoMueblesEmbebido';
 import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shield } from 'lucide-react';
 ---
 
@@ -128,6 +129,26 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
     title="Nuestros proyectos de muebles"
     serviceType="mueble"
   />
+
+  <!-- Cotizador de Muebles -->
+  <section class="bg-cream-300" style="overflow-x: hidden; max-width: 100vw; padding: 2rem 0; position: relative;">
+    <div class="container-custom" style="overflow-x: hidden; max-width: 100%; position: relative;">
+      <div class="text-center mb-6 md:mb-8">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4 text-secondary-950">
+          Diseña tu Mueble Ideal
+        </h2>
+        <p class="text-base md:text-lg text-secondary-700 max-w-2xl mx-auto font-medium">
+          Explora nuestro catálogo interactivo y crea el mueble de tus sueños. Personaliza materiales, dimensiones y acabados.
+        </p>
+      </div>
+      <CatalogoMueblesEmbebido 
+        client:load
+        urlCotizador="https://cotizador-app-two.vercel.app/muebles-publico"
+        altura="900px"
+        className="w-full"
+      />
+    </div>
+  </section>
 
   <!-- Types of Furniture -->
   <section class="section-padding bg-white">

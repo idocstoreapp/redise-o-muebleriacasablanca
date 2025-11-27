@@ -26,7 +26,7 @@ const TrustBanner = () => {
             Nuestros clientes confían en nosotros:
           </p>
           <div className="flex items-center justify-center gap-8 md:gap-16 overflow-hidden relative">
-            <div className="flex items-center gap-8 md:gap-16 animate-scroll">
+          <div className="flex items-center gap-8 md:gap-16 animate-scroll">
               {clientes.map((cliente, index) => (
                 <div
                   key={index}
@@ -65,31 +65,31 @@ const TrustBanner = () => {
           <div className="flex items-center justify-center gap-8 md:gap-16 overflow-hidden relative">
             <div className="flex items-center gap-8 md:gap-16 animate-scroll-reverse">
               {marcas.map((marca, index) => (
-                <div
-                  key={index}
+              <div
+                key={index}
                   className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-                >
-                  <img
+              >
+                <img
                     src={marca.image}
                     alt={marca.name}
                     className="h-8 md:h-12 w-auto max-w-[120px] md:max-w-[150px] object-contain"
                     loading="lazy"
-                  />
-                </div>
-              ))}
+                />
+              </div>
+            ))}
               {marcas.map((marca, index) => (
-                <div
-                  key={`duplicate-${index}`}
+              <div
+                key={`duplicate-${index}`}
                   className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-                >
-                  <img
+              >
+                <img
                     src={marca.image}
                     alt={marca.name}
                     className="h-8 md:h-12 w-auto max-w-[120px] md:max-w-[150px] object-contain"
                     loading="lazy"
-                  />
-                </div>
-              ))}
+                />
+              </div>
+            ))}
             </div>
           </div>
         </div>
