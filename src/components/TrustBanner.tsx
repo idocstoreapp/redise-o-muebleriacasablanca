@@ -25,7 +25,7 @@ const TrustBanner = () => {
           <p className="text-secondary-600 font-semibold text-sm md:text-base text-center mb-4">
             Nuestros clientes confían en nosotros:
           </p>
-          <div className="flex items-center justify-center gap-8 md:gap-16 overflow-hidden relative">
+          <div className="flex items-center justify-center gap-8 md:gap-16 overflow-hidden relative" style={{ minHeight: '48px' }}>
           <div className="flex items-center gap-8 md:gap-16 animate-scroll">
               {clientes.map((cliente, index) => (
                 <div
@@ -35,8 +35,11 @@ const TrustBanner = () => {
                   <img
                     src={cliente.image}
                     alt={cliente.name}
+                    width={150}
+                    height={48}
                     className="h-8 md:h-12 w-auto max-w-[120px] md:max-w-[150px] object-contain"
                     loading="lazy"
+                    style={{ aspectRatio: 'auto', minHeight: '32px' }}
                   />
                 </div>
               ))}
@@ -48,8 +51,11 @@ const TrustBanner = () => {
                   <img
                     src={cliente.image}
                     alt={cliente.name}
+                    width={150}
+                    height={48}
                     className="h-8 md:h-12 w-auto max-w-[120px] md:max-w-[150px] object-contain"
                     loading="lazy"
+                    style={{ aspectRatio: 'auto', minHeight: '32px' }}
                   />
                 </div>
               ))}
@@ -62,7 +68,7 @@ const TrustBanner = () => {
           <p className="text-secondary-600 font-semibold text-sm md:text-base text-center mb-4">
             Trabajamos con las mejores marcas:
           </p>
-          <div className="flex items-center justify-center gap-8 md:gap-16 overflow-hidden relative">
+          <div className="flex items-center justify-center gap-8 md:gap-16 overflow-hidden relative" style={{ minHeight: '48px' }}>
             <div className="flex items-center gap-8 md:gap-16 animate-scroll-reverse">
               {marcas.map((marca, index) => (
               <div
@@ -72,8 +78,11 @@ const TrustBanner = () => {
                 <img
                     src={marca.image}
                     alt={marca.name}
+                    width={150}
+                    height={48}
                     className="h-8 md:h-12 w-auto max-w-[120px] md:max-w-[150px] object-contain"
                     loading="lazy"
+                    style={{ aspectRatio: 'auto', minHeight: '32px' }}
                 />
               </div>
             ))}
@@ -85,8 +94,11 @@ const TrustBanner = () => {
                 <img
                     src={marca.image}
                     alt={marca.name}
+                    width={150}
+                    height={48}
                     className="h-8 md:h-12 w-auto max-w-[120px] md:max-w-[150px] object-contain"
                     loading="lazy"
+                    style={{ aspectRatio: 'auto', minHeight: '32px' }}
                 />
               </div>
             ))}

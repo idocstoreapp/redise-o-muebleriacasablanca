@@ -27,8 +27,9 @@ const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={`${variants[variant]} ${className}`}
+      style={{ minHeight: '44px', display: 'inline-flex' }}
     >
-      <MessageCircle className="w-5 h-5" />
+      <MessageCircle className="w-5 h-5" style={{ flexShrink: 0 }} />
       <span>Contactar</span>
     </a>
   );

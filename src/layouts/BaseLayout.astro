@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import CriticalCSS from '../components/CriticalCSS.astro';
+import FontLoader from '../components/FontLoader.astro';
 import MobileNavBar from '../components/MobileNavBar';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -22,9 +24,41 @@ const { title, description = 'Diseños exclusivos y a medida para tu hogar o neg
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="shortcut icon" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    {/* CSS crítico inline - Se inyecta primero para evitar bloqueo */}
+    <CriticalCSS />
+    
+    {/* Font Loader - Detecta cuando cargan las fuentes */}
+    <FontLoader />
+    
+    {/* Preconnects para recursos críticos - Después del CSS crítico */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    {/* Preload de imagen LCP - Crítico para performance - Solo en página principal */}
+    {Astro.url.pathname === '/' && (
+      <link 
+        rel="preload" 
+        href="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
+        as="image"
+        fetchpriority="high"
+      />
+    )}
+    
+    {/* Fuentes cargadas de forma asíncrona - NO bloquea renderizado */}
+    <link 
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" 
+        rel="stylesheet"
+      />
+    </noscript>
+    
     <title>{title} | Mueblería Casa Blanca</title>
   </head>
   <body class="bg-cream-300 text-secondary-900 antialiased">

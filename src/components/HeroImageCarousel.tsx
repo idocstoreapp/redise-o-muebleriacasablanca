@@ -23,32 +23,69 @@ const HeroImageCarousel = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Controlar visibilidad de imagen LCP en HTML
+  useEffect(() => {
+    const lcpImage = document.getElementById('lcp-image');
+    if (lcpImage) {
+      if (currentIndex === 0) {
+        lcpImage.style.opacity = '1';
+        lcpImage.style.zIndex = '0';
+      } else {
+        lcpImage.style.opacity = '0';
+        lcpImage.style.zIndex = '-1';
+      }
+    }
+  }, [currentIndex]);
+
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {heroImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentIndex ? 'opacity-100 z-0' : 'opacity-0 z-0'
-          }`}
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            className={`w-full h-full object-cover ${
-              index === currentIndex ? 'animate-hero-zoom' : 'scale-100'
+      {heroImages.map((image, index) => {
+        const isCurrent = index === currentIndex;
+        // No renderizar la primera imagen (index 0) ya que está en HTML
+        if (index === 0) {
+          return null;
+        }
+        
+        return (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              isCurrent ? 'opacity-100 z-0' : 'opacity-0 z-0'
             }`}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            key={`${image.src}-${currentIndex}`}
-          />
-        </div>
-      ))}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className={`w-full h-full object-cover ${
+                isCurrent ? 'animate-hero-zoom' : 'scale-100'
+              }`}
+              loading="lazy"
+              fetchPriority="auto"
+              decoding="async"
+              sizes="100vw"
+            />
+          </div>
+        );
+      })}
       {/* Indicadores de área - Solo visible en desktop */}
       <div className="hidden md:flex absolute top-6 right-6 z-30 flex-col gap-2">
         {heroImages.map((image, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setCurrentIndex(index);
+              // Actualizar visibilidad de imagen LCP cuando se hace clic
+              const lcpImage = document.getElementById('lcp-image');
+              if (lcpImage) {
+                if (index === 0) {
+                  lcpImage.style.opacity = '1';
+                  lcpImage.style.zIndex = '0';
+                } else {
+                  lcpImage.style.opacity = '0';
+                  lcpImage.style.zIndex = '-1';
+                }
+              }
+            }}
             className={`px-2 py-1 md:px-4 md:py-2 rounded-full backdrop-blur-sm border border-white/50 md:border-2 transition-all duration-300 whitespace-nowrap ${
               index === currentIndex
                 ? 'bg-primary-500 border-white text-white shadow-lg scale-105'

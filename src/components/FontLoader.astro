@@ -1,0 +1,29 @@
+---
+// Componente para detectar cuando las fuentes cargan y agregar clase al body
+// Esto ayuda a prevenir CLS causado por cambios de fuente
+---
+
+<script is:inline>
+  (function() {
+    // Detectar cuando las fuentes de Google cargan
+    if ('fonts' in document) {
+      Promise.all([
+        document.fonts.load('400 1em Inter'),
+        document.fonts.load('400 1em Poppins'),
+      ]).then(function() {
+        document.body.classList.add('fonts-loaded');
+      }).catch(function() {
+        // Si falla, agregar clase de todas formas después de 3 segundos
+        setTimeout(function() {
+          document.body.classList.add('fonts-loaded');
+        }, 3000);
+      });
+    } else {
+      // Fallback para navegadores sin Font Loading API
+      setTimeout(function() {
+        document.body.classList.add('fonts-loaded');
+      }, 1000);
+    }
+  })();
+</script>
+

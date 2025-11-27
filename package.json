@@ -7,21 +7,25 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "optimize:images": "node scripts/optimize-images.js",
+    "analyze:bundle": "astro build && vite-bundle-visualizer",
+    "get:dimensions": "node scripts/get-image-dimensions.js"
   },
   "dependencies": {
     "@astrojs/react": "^3.3.1",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.5.0",
+    "lucide-react": "^0.344.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lucide-react": "^0.344.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite-bundle-visualizer": "^1.2.1"
   }
 }
-

@@ -13,29 +13,47 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
 
 <BaseLayout title="Inicio" description="Cocinas y muebles a medida. Diseño personalizado, materiales premium y entrega puntual. Transforma tus espacios con calidad garantizada.">
   <!-- Hero Section -->
-  <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-20 md:pb-24">
-    <!-- Background Image Carousel -->
+  <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-20 md:pb-24 hero-container">
+    <!-- Imagen LCP - Renderizada directamente en HTML para descubrimiento inmediato -->
+    <div id="lcp-image" class="absolute inset-0 overflow-hidden z-0">
+      <img 
+        src="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
+        alt="Cocina personalizada"
+        class="w-full h-full object-cover animate-hero-zoom"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        width="1920"
+        height="1080"
+      />
+    </div>
+    <!-- Background Image Carousel - Resto de imágenes cargan después -->
     <HeroImageCarousel client:load />
     <!-- Overlay suave para legibilidad -->
     <div class="absolute inset-0 bg-gradient-to-br from-secondary-900/60 via-secondary-800/50 to-secondary-900/60 backdrop-blur-[1px]"></div>
     
-    <div class="container-custom relative z-10 text-center">
-      <div class="max-w-4xl mx-auto px-4">
+    <div class="container-custom relative z-10 text-center" style="min-height: 450px; display: flex; flex-direction: column; justify-content: center;">
+      <div class="max-w-4xl mx-auto px-4 w-full">
         <!-- Logo -->
-        <div class="mb-6 md:mb-10 flex justify-center mt-4 md:mt-8">
-          <div class="relative inline-block p-1 md:p-2 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+        <div class="mb-6 md:mb-10 flex justify-center mt-4 md:mt-8" style="min-height: 80px; max-height: 128px;">
+          <div class="relative inline-block p-1 md:p-2 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20" style="width: 128px; height: 128px; display: flex; align-items: center; justify-content: center;">
             <img 
               src="/logo-blaco.png" 
               alt="Mueblería Casa Blanca" 
+              width="128"
+              height="128"
               class="h-20 md:h-32 w-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] filter brightness-120 contrast-125"
-              style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,255,255,0.4)) brightness(1.2) contrast(1.25);"
+              style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)) drop-shadow(0 0 12px rgba(255,255,255,0.4)) brightness(1.2) contrast(1.25); aspect-ratio: 1 / 1; max-width: 100%; max-height: 100%;"
               onerror="this.src='/logo-blanco.png'; this.onerror=null;"
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
         </div>
-        <!-- H1 animado -->
-        <h1 class="font-sans text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-[1.1] tracking-tight drop-shadow-2xl text-white px-2">
-          <span id="animated-title" class="block"></span>
+        <!-- H1 animado - Reservar espacio para evitar CLS -->
+        <h1 class="font-sans text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-[1.1] tracking-tight drop-shadow-2xl text-white px-2" style="min-height: 2.2em; display: block;">
+          <noscript>Cocinas a Medida que Transforman tu Hogar</noscript>
+          <span id="animated-title" class="block">Cocinas a Medida que Transforman tu Hogar</span>
         </h1>
         <script>
           const titles = ['Cocinas a Medida que Transforman tu Hogar', 'Diseño Personalizado para Espacios Únicos'];
@@ -63,7 +81,9 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
           if (titleElement) {
             const isMobile = window.innerWidth < 768;
             const titlesArray = isMobile ? titlesMobile : titles;
+            // Renderizar texto inmediatamente para evitar CLS
             titleElement.textContent = titlesArray[0];
+            titleElement.style.opacity = '1';
             titleElement.style.transition = 'all 0.5s ease-in-out';
             setInterval(updateTitle, 5000);
             
@@ -81,17 +101,21 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
             });
           }
         </script>
-        <!-- Subtítulo animado -->
-        <p id="animated-subtitle" class="font-sans text-base md:text-lg lg:text-xl text-white/95 mb-8 md:mb-10 leading-relaxed font-normal drop-shadow-lg max-w-2xl mx-auto px-4"></p>
+        <!-- Subtítulo animado - Reservar espacio para evitar CLS -->
+        <p id="animated-subtitle" class="font-sans text-base md:text-lg lg:text-xl text-white/95 mb-8 md:mb-10 leading-relaxed font-normal drop-shadow-lg max-w-2xl mx-auto px-4" style="min-height: 4.5em; display: block;">
+          Diseño, fabricación e instalación de cocinas y muebles personalizados. Materiales premium, entrega puntual y resultados que superan expectativas.
+        </p>
         <script>
           const subtitle = 'Diseño, fabricación e instalación de cocinas y muebles personalizados. Materiales premium, entrega puntual y resultados que superan expectativas.';
           const subtitleMobile = 'Cocinas y muebles personalizados. Materiales premium y entrega puntual.';
           const subtitleElement = document.getElementById('animated-subtitle');
           if (subtitleElement) {
             const isMobile = window.innerWidth < 768;
-            subtitleElement.textContent = isMobile ? subtitleMobile : subtitle;
-            subtitleElement.style.opacity = '0';
-            subtitleElement.style.animation = 'fadeInUp 1s ease-out 0.5s forwards';
+            // Actualizar texto si es diferente, pero mantener visible para evitar CLS
+            const targetText = isMobile ? subtitleMobile : subtitle;
+            if (subtitleElement.textContent !== targetText) {
+              subtitleElement.textContent = targetText;
+            }
             
             // Actualizar subtítulo al cambiar tamaño de ventana
             let resizeTimeout;
@@ -112,11 +136,12 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
         </div>
         
         <!-- Botones mejorados -->
-        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pb-4 md:pb-12">
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pb-4 md:pb-12" style="min-height: 52px;">
           <a 
             href="#cotizar" 
             class="bg-primary-500 hover:bg-primary-600 text-white font-sans font-semibold text-sm md:text-base px-8 md:px-10 py-3.5 md:py-4 rounded-xl uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 min-w-[180px] sm:min-w-[200px] group relative z-20"
             aria-label="Cotizar proyecto"
+            style="min-height: 44px; display: inline-flex;"
           >
             Cotizar proyecto
             <ArrowRight class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
@@ -127,9 +152,9 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
     </div>
   </section>
 
-  <!-- Trust Banner -->
+  <!-- Trust Banner - Above fold, cargar en idle -->
   <div class="md:mt-16">
-    <TrustBanner client:load />
+    <TrustBanner client:idle />
   </div>
 
   <!-- Services Preview -->
@@ -232,7 +257,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
       </div>
 
       <!-- Carrusel para mobile -->
-      <FeaturesCarousel client:load />
+      <FeaturesCarousel client:idle />
 
       <!-- Grid para desktop -->
       <div class="hidden md:grid grid-cols-2 gap-8 mb-16">
@@ -400,7 +425,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
           Lo que dicen nuestros clientes
         </h2>
       </div>
-      <TestimonialsCarousel client:load />
+      <TestimonialsCarousel client:visible />
     </div>
   </section>
 
@@ -595,7 +620,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
   </section>
 
   <!-- How It Works -->
-  <HowItWorks client:load />
+  <HowItWorks client:visible />
 
 
   <!-- CTA Section -->
@@ -619,7 +644,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
         </p>
         
         <div class="bg-white rounded-2xl p-8 md:p-12 text-secondary-900 shadow-2xl">
-          <ContactForm client:load />
+          <ContactForm client:visible />
         </div>
       </div>
     </div>
@@ -743,6 +768,6 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
   </section>
 
   <!-- FAQ Section -->
-  <FAQ client:load />
+  <FAQ client:visible />
 </BaseLayout>
 

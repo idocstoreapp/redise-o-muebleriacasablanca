@@ -1,0 +1,117 @@
+---
+// Componente para inyectar CSS crítico inline
+// Esto reduce el bloqueo de renderización
+---
+
+<style is:inline>
+  /* CSS crítico mínimo - Solo lo esencial para above-the-fold */
+  
+  /* Reset básico */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #F8F4EF;
+    color: #4F4A45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Container crítico */
+  .container-custom {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-custom { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom { padding-left: 2rem; padding-right: 2rem; max-width: 80rem; }
+  }
+  
+  /* Clase para fuentes personalizadas cuando carguen */
+  .font-display { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+  .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+  
+  /* Utilidades críticas */
+  .bg-cream-300 { background-color: #F8F4EF; }
+  .text-secondary-900 { color: #1c1917; }
+  .antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  
+  /* Prevenir CLS con dimensiones reservadas */
+  h1, h2, h3, h4, h5, h6 {
+    min-height: 1.2em;
+    line-height: 1.2;
+  }
+  
+  /* Prevenir CLS en botones */
+  a[class*="btn"], button {
+    min-height: 44px;
+  }
+  
+  /* Prevenir CLS en imágenes */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Contenedor del hero - dimensiones reservadas */
+  .hero-container {
+    min-height: 400px;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-container {
+      min-height: 600px;
+    }
+  }
+  
+  /* Prevenir CLS en contenedores flex */
+  .flex {
+    min-height: fit-content;
+  }
+  
+  /* Prevenir CLS en elementos con animación */
+  [class*="animate-"] {
+    will-change: transform;
+  }
+  
+  /* Prevenir CLS durante carga de fuentes - Usar fallback siempre */
+  /* Las fuentes personalizadas se aplicarán cuando carguen sin cambiar layout */
+  body .font-sans {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size-adjust: 0.5;
+  }
+  
+  body .font-display {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size-adjust: 0.5;
+  }
+  
+  /* Cuando las fuentes carguen, aplicar las personalizadas suavemente */
+  body.fonts-loaded .font-sans {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  body.fonts-loaded .font-display {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Prevenir cambios de tamaño en botones */
+  a[href*="#"], a[href^="/"], a[href^="http"] {
+    min-height: fit-content;
+  }
+  
+  /* Estabilizar contenedores de hero */
+  .container-custom.relative.z-10.text-center {
+    contain: layout style;
+  }
+</style>
+

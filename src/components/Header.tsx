@@ -1,15 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useScroll } from '../hooks/useScroll';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const isScrolled = useScroll({ threshold: 50, throttleMs: 150 });
 
   return (
     <header

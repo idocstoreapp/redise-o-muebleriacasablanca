@@ -25,6 +25,17 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold;
   }
+  
+  /* Optimización de fuentes */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    font-display: swap;
+  }
 }
 
 @layer components {

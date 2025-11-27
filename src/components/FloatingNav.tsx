@@ -1,17 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X, Home, Info, ChefHat, Phone, MessageCircle, FileText } from 'lucide-react';
+import { useScroll } from '../hooks/useScroll';
 
 const FloatingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const isScrolled = useScroll({ threshold: 100, throttleMs: 150 });
 
   const navItems = [
     { icon: Home, label: 'Inicio', href: '/', color: 'bg-primary-500' },
