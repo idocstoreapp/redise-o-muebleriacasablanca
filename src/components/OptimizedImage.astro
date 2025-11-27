@@ -94,7 +94,7 @@ const aspectRatioStyle = aspectRatio ? `aspect-ratio: ${aspectRatio};` : '';
 ---
 
 <picture>
-  <!-- WebP con srcset -->
+  <!-- WebP con srcset - Se intentará cargar, pero si no existe usará fallback -->
   {webpSrcset && (
     <source
       srcset={webpSrcset}
@@ -112,7 +112,7 @@ const aspectRatioStyle = aspectRatio ? `aspect-ratio: ${aspectRatio};` : '';
     />
   )}
   
-  <!-- Imagen fallback -->
+  <!-- Imagen fallback - SIEMPRE se muestra si WebP falla -->
   <img
     src={src}
     alt={alt}

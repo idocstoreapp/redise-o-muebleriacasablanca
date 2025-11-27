@@ -56,6 +56,8 @@ const HeroImageCarousel = () => {
             <img
               src={image.src}
               alt={image.alt}
+              width={1920}
+              height={1080}
               className={`w-full h-full object-cover ${
                 isCurrent ? 'animate-hero-zoom' : 'scale-100'
               }`}
@@ -63,6 +65,7 @@ const HeroImageCarousel = () => {
               fetchPriority="auto"
               decoding="async"
               sizes="100vw"
+              style={{ aspectRatio: '16 / 9' }}
             />
           </div>
         );
