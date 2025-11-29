@@ -72,10 +72,12 @@ const CatalogoClosetsEmbebido = ({
           width: '100%',
           height: '100%',
           minHeight: '600px',
-          pointerEvents: 'auto' // Solo el iframe recibe eventos
+          pointerEvents: 'auto', // Solo el iframe recibe eventos
+          isolation: 'isolate' // Asegurar que el iframe esté aislado
         }}
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-pointer-lock allow-modals"
+        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-pointer-lock allow-modals allow-downloads allow-presentation"
         referrerPolicy="no-referrer-when-downgrade"
+        allow="clipboard-read; clipboard-write"
       />
     </div>
   );
