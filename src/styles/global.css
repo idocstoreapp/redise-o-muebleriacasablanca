@@ -198,3 +198,151 @@ html, body {
   }
 }
 
+/* Estilos responsivos para hero y botones entre 1030px y 1520px (altura 928px) */
+/* Bajar los botones hasta el pie del hero y bajar más el slider de Google Reviews */
+@media (min-width: 1030px) and (max-width: 1520px) {
+  .hero-responsive-padding {
+    padding-bottom: 8rem !important; /* 128px - más espacio para botones al pie */
+    min-height: 600px !important; /* Asegurar altura mínima */
+    position: relative !important;
+  }
+  
+  /* Asegurar que el contenedor use todo el espacio disponible */
+  .hero-responsive-padding .container-custom {
+    position: relative !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+  
+  .hero-responsive-padding .container-custom > div {
+    position: relative !important;
+    min-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  /* Botones al pie del hero usando posicionamiento absoluto - más abajo */
+  .buttons-responsive-margin {
+    position: absolute !important;
+    bottom: 1rem !important; /* 16px desde el pie - más abajo */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 2rem) !important;
+    max-width: 28rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Reducir márgenes del contenido superior para dejar espacio */
+  .hero-responsive-padding .container-custom > div > *:not(.buttons-responsive-margin) {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Ajustar microcopy para que no tenga tanto margen */
+  .hero-responsive-padding .container-custom > div > div.flex.flex-wrap {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Ajustar H1 y subtítulo */
+  .hero-responsive-padding h1 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .hero-responsive-padding p {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* DESDE 1280px: botones pegados al bottom del hero y slider arriba */
+@media (min-width: 1280px) {
+  /* Hero sin padding-bottom - SOBRESCRIBIR TODAS LAS CLASES INLINE */
+  section.hero-responsive-padding,
+  .hero-responsive-padding {
+    padding-bottom: 0 !important;
+    padding-top: 3rem !important;
+    position: relative !important;
+  }
+  
+  /* Contenedor con posición relativa */
+  section.hero-responsive-padding .container-custom,
+  .hero-responsive-padding .container-custom {
+    position: relative !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+  
+  section.hero-responsive-padding .container-custom > div,
+  .hero-responsive-padding .container-custom > div {
+    position: relative !important;
+    min-height: 100% !important;
+  }
+  
+  /* BOTONES PEGADOS AL BOTTOM - SELECTORES ULTRA ESPECÍFICOS */
+  section.hero-responsive-padding .container-custom .buttons-responsive-margin,
+  section.hero-responsive-padding .container-custom > div .buttons-responsive-margin,
+  section.hero-responsive-padding .container-custom > div > div.buttons-responsive-margin,
+  .hero-responsive-padding .container-custom .buttons-responsive-margin,
+  .hero-responsive-padding .container-custom > div .buttons-responsive-margin,
+  .hero-responsive-padding .container-custom > div > div.buttons-responsive-margin,
+  .hero-responsive-padding .buttons-responsive-margin {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 2rem) !important;
+    max-width: 28rem !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    z-index: 10 !important;
+  }
+  
+  /* Reducir márgenes del contenido superior */
+  section.hero-responsive-padding .container-custom > div > *:not(.buttons-responsive-margin),
+  .hero-responsive-padding .container-custom > div > *:not(.buttons-responsive-margin) {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  section.hero-responsive-padding .container-custom > div > div.flex.flex-wrap,
+  .hero-responsive-padding .container-custom > div > div.flex.flex-wrap {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  section.hero-responsive-padding h1,
+  .hero-responsive-padding h1 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  section.hero-responsive-padding p,
+  .hero-responsive-padding p {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* Ajuste adicional para pantallas entre 1456px y 1520px */
+@media (min-width: 1456px) and (max-width: 1520px) {
+  .hero-responsive-padding {
+    padding-bottom: 7.5rem !important; /* 120px */
+    min-height: 700px !important;
+  }
+}
+
+/* Ajuste para pantallas entre 1520px y 1725px */
+@media (min-width: 1520px) and (max-width: 1725px) {
+  .hero-responsive-padding {
+    padding-bottom: 8rem !important; /* 128px */
+    min-height: 700px !important;
+  }
+}
+

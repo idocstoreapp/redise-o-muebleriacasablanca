@@ -62,3 +62,4 @@ Actualizar `ProductDetailPublico.tsx` para que:
 3. Muestre todos los selectores de variables disponibles para muebles
 4. Mantenga el comportamiento actual que ya funciona para cocinas
 
+

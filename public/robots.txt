@@ -8,3 +8,4 @@ Sitemap: https://muebleriacasablanca.cl/sitemap.xml
 Disallow: /api/
 Disallow: /_astro/
 
+

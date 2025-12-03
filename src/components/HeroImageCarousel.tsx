@@ -62,7 +62,7 @@ const HeroImageCarousel = () => {
                 isCurrent ? 'animate-hero-zoom' : 'scale-100'
               }`}
               loading="lazy"
-              fetchPriority="auto"
+              fetchpriority="auto"
               decoding="async"
               sizes="100vw"
               style={{ aspectRatio: '16 / 9' }}
