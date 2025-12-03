@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://muebleriacasablanca.cl/sitemap.xml
+
+# Bloquear archivos innecesarios
+Disallow: /api/
+Disallow: /_astro/
+

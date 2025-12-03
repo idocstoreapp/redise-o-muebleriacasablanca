@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import GoogleReviewsCarousel from '../components/GoogleReviewsCarousel';
 import WhatsAppButton from '../components/WhatsAppButton';
 import ContactForm from '../components/ContactForm';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
@@ -11,11 +14,63 @@ import BenefitsCarousel from '../components/BenefitsCarousel';
 import CotizadorCocinas from '../components/CotizadorCocinas';
 import CatalogoCocinasEmbebido from '../components/CatalogoCocinasEmbebido';
 import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, Shield } from 'lucide-react';
+
+const site = 'https://muebleriacasablanca.cl';
+const currentUrl = `${site}/cocinas`;
 ---
 
-<BaseLayout title="Cocinas a Medida" description="Diseño y fabricación de cocinas personalizadas. Materiales premium, entrega puntual y resultados excepcionales. Cotiza tu cocina ideal.">
+<BaseLayout 
+  title="Cocinas a Medida" 
+  description="Diseño y fabricación de cocinas personalizadas. Materiales premium, entrega puntual y resultados excepcionales. Cotiza tu cocina ideal."
+  image={`${site}/cocinas/cocina1.JPG`}
+  url={currentUrl}
+>
+  {/* Structured Data - Service */}
+  <StructuredData 
+    type="Service"
+    data={{
+      name: 'Cocinas a Medida',
+      description: 'Diseño y fabricación de cocinas personalizadas. Materiales premium, entrega puntual y resultados excepcionales.',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Mueblería Casa Blanca',
+        url: site
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Chile'
+      },
+      serviceType: 'Diseño y Fabricación de Cocinas',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'CLP',
+        availability: 'https://schema.org/InStock'
+      }
+    }}
+  />
+
+  {/* Breadcrumbs */}
+  <StructuredData 
+    type="BreadcrumbList"
+    data={{
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: site
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Cocinas a Medida',
+          item: currentUrl
+        }
+      ]
+    }}
+  />
   <!-- Hero Section -->
-  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
+  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-visible md:overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
     <div class="absolute inset-0">
       <img 
         src="/Gemini_Generated_Image_exyvenexyvenexyv.png" 
@@ -26,6 +81,9 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
       <!-- Overlay suave para legibilidad -->
       <div class="absolute inset-0 bg-gradient-to-br from-secondary-900/60 via-secondary-800/50 to-secondary-900/60 backdrop-blur-[1px]"></div>
     </div>
+    
+    <!-- Google Reviews Carousel -->
+    <GoogleReviewsCarousel client:load variant="hero" />
     
     <div class="container-custom relative z-10 text-center">
       <div class="max-w-4xl mx-auto px-4">
@@ -75,6 +133,13 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
     </div>
   </section>
 
+  <!-- Google Reviews Carousel - Mobile: Superpuesto al hero -->
+  <div class="md:hidden w-full px-4 -mt-20 mb-8 relative z-30">
+    <div class="bg-white rounded-2xl shadow-2xl border border-secondary-200 p-4 max-w-md mx-auto">
+      <GoogleReviewsCarousel client:load variant="mobile" />
+    </div>
+  </div>
+
   <!-- Trust Banner -->
   <TrustBanner client:load />
 
@@ -82,16 +147,17 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
   <section class="section-padding bg-cream-300 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-cream-300 via-cream-200/50 to-cream-300"></div>
     <div class="container-custom relative z-10">
-      <div class="text-center mb-12">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
-          Por qué elegir nuestras cocinas
-        </h2>
-        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
-          Soluciones personalizadas que se adaptan a tu estilo de vida
-        </p>
-      </div>
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+            Por qué elegir nuestras cocinas
+          </h2>
+          <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+            Soluciones personalizadas que se adaptan a tu estilo de vida
+          </p>
+        </div>
 
-      <BenefitsCarousel 
+        <BenefitsCarousel 
         client:load
         benefits={[
           {
@@ -111,6 +177,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
           }
         ]}
       />
+      </div>
     </div>
   </section>
 
@@ -131,9 +198,23 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
     serviceType="cocina"
   />
 
+  <!-- Problema y Solución -->
+  <ProblemSolution
+    problem="Cocinas que no aprovechan tu espacio"
+    problemDescription="Las cocinas estándar suelen dejar espacios sin usar, tener almacenamiento insuficiente o no adaptarse al flujo de trabajo. Esto genera frustración diaria y desperdicia el potencial de uno de los espacios más importantes de tu hogar."
+    solution="Cocinas diseñadas a medida para tu espacio"
+    solutionDescription="Diseñamos cocinas que maximizan cada centímetro, con almacenamiento inteligente, flujo de trabajo optimizado y materiales que combinan funcionalidad con estética. Cada cocina se adapta a tus hábitos y necesidades específicas."
+    benefits={[
+      "Almacenamiento optimizado con soluciones personalizadas",
+      "Diseño ergonómico que mejora tu experiencia culinaria",
+      "Materiales resistentes y fáciles de mantener",
+      "Integración perfecta con tu espacio y estilo"
+    ]}
+  />
+
   <!-- Cotizador de Cocinas -->
-  <section class="bg-cream-300" style="overflow-x: hidden; max-width: 100vw; padding: 2rem 0; position: relative;">
-    <div class="container-custom" style="overflow-x: hidden; max-width: 100%; position: relative;">
+  <section class="bg-cream-300 section-padding" style="overflow-x: hidden; max-width: 100vw; position: relative;">
+    <div class="container-custom max-w-7xl mx-auto px-4 md:px-8" style="overflow-x: hidden; max-width: 100%; position: relative;">
       <div class="text-center mb-6 md:mb-8">
         <h2 class="font-display text-3xl md:text-4xl font-bold mb-4 text-secondary-950">
           Diseña tu Cocina Ideal
@@ -142,11 +223,13 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, ChefHat, Palette, Wrench, 
           Explora nuestro catálogo interactivo y crea la cocina de tus sueños. Personaliza materiales, colores y acabados.
         </p>
       </div>
-      <CatalogoCocinasEmbebido 
-        client:load
-        urlCotizador="https://cotizador-app-two.vercel.app/cocinas-publico"
-        className="w-full"
-      />
+      <div class="w-full overflow-hidden" style="max-width: 100%; position: relative;">
+        <CatalogoCocinasEmbebido 
+          client:load
+          urlCotizador="https://cotizador-app-two.vercel.app/cocinas-publico"
+          className="w-full"
+        />
+      </div>
     </div>
   </section>
 

@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
+import StructuredData from '../components/StructuredData.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import GoogleReviewsCarousel from '../components/GoogleReviewsCarousel';
 import WhatsAppButton from '../components/WhatsAppButton';
 import ContactForm from '../components/ContactForm';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
@@ -10,11 +13,100 @@ import HowItWorks from '../components/HowItWorks';
 import HeroImageCarousel from '../components/HeroImageCarousel';
 import FeaturesCarousel from '../components/FeaturesCarousel';
 import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, Wrench, Shield, MessageCircle, Calendar } from 'lucide-react';
+
+const site = 'https://muebleriacasablanca.cl';
 ---
 
-<BaseLayout title="Inicio" description="Cocinas y muebles a medida. Diseño personalizado, materiales premium y entrega puntual. Transforma tus espacios con calidad garantizada.">
+<BaseLayout 
+  title="Inicio" 
+  description="Cocinas y muebles a medida. Diseño personalizado, materiales premium y entrega puntual. Transforma tus espacios con calidad garantizada."
+  image={`${site}/Gemini_Generated_Image_exyvenexyvenexyv.png`}
+  url={site}
+>
+  {/* Structured Data - Organization */}
+  <StructuredData 
+    type="Organization"
+    data={{
+      name: 'Mueblería Casa Blanca',
+      url: site,
+      logo: `${site}/logo.png`,
+      description: 'Diseño y fabricación de cocinas, closets y muebles a medida. Materiales premium, entrega puntual y resultados excepcionales.',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Santa Elena 803',
+        addressLocality: 'Santiago',
+        addressRegion: 'Región Metropolitana',
+        addressCountry: 'CL'
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+56-9-6429-5258',
+        contactType: 'customer service',
+        areaServed: 'CL',
+        availableLanguage: 'Spanish'
+      },
+      sameAs: [
+        'https://www.instagram.com/muebleriacasablanca'
+      ]
+    }}
+  />
+
+  {/* Structured Data - WebSite */}
+  <StructuredData 
+    type="WebSite"
+    data={{
+      name: 'Mueblería Casa Blanca',
+      url: site,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${site}/?q={search_term_string}`
+        },
+        'query-input': 'required name=search_term_string'
+      }
+    }}
+  />
+
+  {/* Structured Data - LocalBusiness */}
+  <StructuredData 
+    type="LocalBusiness"
+    data={{
+      name: 'Mueblería Casa Blanca',
+      image: `${site}/logo.png`,
+      '@id': site,
+      url: site,
+      telephone: '+56-9-6429-5258',
+      priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Santa Elena 803',
+        addressLocality: 'Santiago',
+        addressRegion: 'Región Metropolitana',
+        postalCode: '8320000',
+        addressCountry: 'CL'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -33.4489,
+        longitude: -70.6693
+      },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday'
+        ],
+        opens: '09:00',
+        closes: '18:00'
+      }
+    }}
+  />
   <!-- Hero Section -->
-  <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-20 md:pb-24 hero-container">
+  <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-visible md:overflow-hidden pt-12 md:pt-16 pb-20 md:pb-24 hero-container">
     <!-- Imagen LCP - Renderizada directamente en HTML para descubrimiento inmediato -->
     <div id="lcp-image" class="absolute inset-0 overflow-hidden z-0">
       <OptimizedImage 
@@ -33,6 +125,9 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
     <HeroImageCarousel client:load />
     <!-- Overlay suave para legibilidad -->
     <div class="absolute inset-0 bg-gradient-to-br from-secondary-900/60 via-secondary-800/50 to-secondary-900/60 backdrop-blur-[1px]"></div>
+    
+    <!-- Google Reviews Carousel -->
+    <GoogleReviewsCarousel client:load variant="hero" />
     
     <div class="container-custom relative z-10 text-center" style="min-height: 450px; display: flex; flex-direction: column; justify-content: center;">
       <div class="max-w-4xl mx-auto px-4 w-full">
@@ -154,6 +249,13 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
     </div>
   </section>
 
+  <!-- Google Reviews Carousel - Mobile: Superpuesto al hero -->
+  <div class="md:hidden w-full px-4 -mt-20 mb-8 relative z-30">
+    <div class="bg-white rounded-2xl shadow-2xl border border-secondary-200 p-4 max-w-md mx-auto">
+      <GoogleReviewsCarousel client:load variant="mobile" />
+    </div>
+  </div>
+
   <!-- Trust Banner - Above fold, cargar en idle -->
   <div class="md:mt-16">
     <TrustBanner client:idle />
@@ -249,20 +351,21 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
   <section class="section-padding bg-cream-300 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-cream-300 via-cream-200/50 to-cream-300"></div>
     <div class="container-custom relative z-10 w-full max-w-full">
-      <div class="text-center mb-4 md:mb-16">
-        <h2 class="font-display text-2xl md:text-5xl font-bold mb-2 md:mb-4 text-secondary-950">
-          Por qué elegirnos
-        </h2>
-        <p class="text-sm md:text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
-          Calidad, diseño y puntualidad en cada proyecto
-        </p>
-      </div>
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-4 md:mb-16">
+          <h2 class="font-display text-2xl md:text-5xl font-bold mb-2 md:mb-4 text-secondary-950">
+            Por qué elegirnos
+          </h2>
+          <p class="text-sm md:text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+            Calidad, diseño y puntualidad en cada proyecto
+          </p>
+        </div>
 
-      <!-- Carrusel para mobile -->
-      <FeaturesCarousel client:idle />
+        <!-- Carrusel para mobile -->
+        <FeaturesCarousel client:idle />
 
-      <!-- Grid para desktop -->
-      <div class="hidden md:grid grid-cols-2 gap-8 mb-16">
+        <!-- Grid para desktop -->
+        <div class="hidden md:grid grid-cols-2 gap-8 mb-16">
         <div class="bg-white p-8 rounded-2xl card-hover border border-secondary-300 relative overflow-hidden group shadow-lg md:col-span-1">
           <div class="absolute inset-0 overflow-hidden">
             <OptimizedImage 
@@ -409,8 +512,23 @@ import { ArrowRight, CheckCircle, Star, Clock, Users, Award, Sparkles, Palette, 
           </div>
         </div>
       </div>
+      </div>
     </div>
   </section>
+
+  <!-- Problema y Solución -->
+  <ProblemSolution
+    problem="Espacios que no se adaptan a tus necesidades"
+    problemDescription="Muchas veces los muebles estándar no encajan en tu espacio, desperdician áreas valiosas o no cumplen con tus expectativas de funcionalidad y diseño. Esto resulta en inversiones que no aprovechan al máximo tu hogar o negocio."
+    solution="Diseño y fabricación a medida"
+    solutionDescription="En Mueblería Casa Blanca creamos soluciones personalizadas que se adaptan perfectamente a tu espacio, necesidades y estilo. Cada proyecto es único, diseñado específicamente para maximizar funcionalidad y estética."
+    benefits={[
+      "Aprovechamiento óptimo de cada centímetro disponible",
+      "Diseño adaptado a tu estilo de vida y necesidades específicas",
+      "Materiales premium seleccionados para durabilidad y calidad",
+      "Proceso colaborativo desde el diseño hasta la instalación"
+    ]}
+  />
 
   <!-- Instagram Feed Section -->
   <section class="section-padding bg-white">

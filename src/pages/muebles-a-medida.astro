@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import GoogleReviewsCarousel from '../components/GoogleReviewsCarousel';
 import WhatsAppButton from '../components/WhatsAppButton';
 import ContactForm from '../components/ContactForm';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
@@ -10,11 +13,63 @@ import ProjectsGallery from '../components/ProjectsGallery';
 import BenefitsCarousel from '../components/BenefitsCarousel';
 import CatalogoMueblesEmbebido from '../components/CatalogoMueblesEmbebido';
 import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shield } from 'lucide-react';
+
+const site = 'https://muebleriacasablanca.cl';
+const currentUrl = `${site}/muebles-a-medida`;
 ---
 
-<BaseLayout title="Muebles a Medida" description="Muebles personalizados que se adaptan a tu espacio. Diseño exclusivo, funcionalidad y calidad premium. Cotiza tus muebles ideales.">
+<BaseLayout 
+  title="Muebles a Medida" 
+  description="Muebles personalizados que se adaptan a tu espacio. Diseño exclusivo, funcionalidad y calidad premium. Cotiza tus muebles ideales."
+  image={`${site}/muebles/mueble1.png`}
+  url={currentUrl}
+>
+  {/* Structured Data - Service */}
+  <StructuredData 
+    type="Service"
+    data={{
+      name: 'Muebles a Medida',
+      description: 'Muebles personalizados que se adaptan a tu espacio. Diseño exclusivo, funcionalidad y calidad premium.',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Mueblería Casa Blanca',
+        url: site
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Chile'
+      },
+      serviceType: 'Diseño y Fabricación de Muebles',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'CLP',
+        availability: 'https://schema.org/InStock'
+      }
+    }}
+  />
+
+  {/* Breadcrumbs */}
+  <StructuredData 
+    type="BreadcrumbList"
+    data={{
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: site
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Muebles a Medida',
+          item: currentUrl
+        }
+      ]
+    }}
+  />
   <!-- Hero Section -->
-  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
+  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white overflow-visible md:overflow-hidden pt-12 md:pt-16 pb-16 md:pb-20">
     <div class="absolute inset-0">
       <img 
         src="/Gemini_Generated_Image_taxf2gtaxf2gtaxf.png" 
@@ -25,6 +80,9 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
       <!-- Overlay suave para legibilidad -->
       <div class="absolute inset-0 bg-gradient-to-br from-secondary-900/60 via-secondary-800/50 to-secondary-900/60 backdrop-blur-[1px]"></div>
     </div>
+    
+    <!-- Google Reviews Carousel -->
+    <GoogleReviewsCarousel client:load variant="hero" />
     
     <div class="container-custom relative z-10 text-center">
       <div class="max-w-4xl mx-auto px-4">
@@ -74,6 +132,13 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
     </div>
   </section>
 
+  <!-- Google Reviews Carousel - Mobile: Superpuesto al hero -->
+  <div class="md:hidden w-full px-4 -mt-20 mb-8 relative z-30">
+    <div class="bg-white rounded-2xl shadow-2xl border border-secondary-200 p-4 max-w-md mx-auto">
+      <GoogleReviewsCarousel client:load variant="mobile" />
+    </div>
+  </div>
+
   <!-- Trust Banner -->
   <TrustBanner client:load />
 
@@ -81,16 +146,17 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
   <section class="section-padding bg-cream-300 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-cream-300 via-cream-200/50 to-cream-300"></div>
     <div class="container-custom relative z-10">
-      <div class="text-center mb-12">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
-          Por qué elegir nuestros muebles
-        </h2>
-        <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
-          Piezas únicas diseñadas específicamente para tu espacio
-        </p>
-      </div>
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-secondary-950">
+            Por qué elegir nuestros muebles
+          </h2>
+          <p class="text-xl text-secondary-800 max-w-2xl mx-auto font-medium">
+            Piezas únicas diseñadas específicamente para tu espacio
+          </p>
+        </div>
 
-      <BenefitsCarousel 
+        <BenefitsCarousel 
         client:load
         benefits={[
           {
@@ -110,6 +176,7 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
           }
         ]}
       />
+      </div>
     </div>
   </section>
 
@@ -130,9 +197,23 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
     serviceType="mueble"
   />
 
+  <!-- Problema y Solución -->
+  <ProblemSolution
+    problem="Muebles que no encajan en tu espacio"
+    problemDescription="Los muebles estándar rara vez se adaptan perfectamente a espacios irregulares, esquinas o dimensiones específicas. Esto resulta en espacios desperdiciados, diseños que no fluyen y soluciones que no cumplen con tus expectativas funcionales y estéticas."
+    solution="Muebles diseñados específicamente para tu espacio"
+    solutionDescription="Fabricamos muebles que se integran perfectamente con tu arquitectura, aprovechando cada rincón y adaptándose a tus necesidades específicas. Cada pieza es única, diseñada para maximizar funcionalidad y complementar tu estilo."
+    benefits={[
+      "Adaptación perfecta a espacios irregulares y dimensiones específicas",
+      "Diseño multifuncional que optimiza cada área disponible",
+      "Calidad artesanal con materiales seleccionados para durabilidad",
+      "Soluciones únicas que reflejan tu personalidad y estilo"
+    ]}
+  />
+
   <!-- Cotizador de Muebles -->
-  <section class="bg-cream-300" style="overflow-x: hidden; max-width: 100vw; padding: 2rem 0; position: relative;">
-    <div class="container-custom" style="overflow-x: hidden; max-width: 100%; position: relative;">
+  <section class="bg-cream-300 section-padding" style="overflow-x: hidden; max-width: 100vw; position: relative;">
+    <div class="container-custom max-w-7xl mx-auto px-4 md:px-8" style="overflow-x: hidden; max-width: 100%; position: relative;">
       <div class="text-center mb-6 md:mb-8">
         <h2 class="font-display text-3xl md:text-4xl font-bold mb-4 text-secondary-950">
           Diseña tu Mueble Ideal
@@ -141,12 +222,14 @@ import { ArrowRight, CheckCircle, Star, Clock, Award, Sofa, Palette, Wrench, Shi
           Explora nuestro catálogo interactivo y crea el mueble de tus sueños. Personaliza materiales, dimensiones y acabados.
         </p>
       </div>
-      <CatalogoMueblesEmbebido 
-        client:load
-        urlCotizador="https://cotizador-app-two.vercel.app/muebles-publico"
-        altura="900px"
-        className="w-full"
-      />
+      <div class="w-full overflow-hidden" style="max-width: 100%; position: relative;">
+        <CatalogoMueblesEmbebido 
+          client:only="react"
+          urlCotizador="https://cotizador-app-two.vercel.app/muebles-publico"
+          altura="900px"
+          className="w-full"
+        />
+      </div>
     </div>
   </section>
 

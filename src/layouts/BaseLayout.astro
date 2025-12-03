@@ -9,9 +9,20 @@ import Header from '../components/Header';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: string;
+  url?: string;
 }
 
-const { title, description = 'Diseños exclusivos y a medida para tu hogar o negocio. Fabricación y remodelación de cocinas, closets y espacios comerciales.' } = Astro.props;
+const site = 'https://muebleriacasablanca.cl';
+const { 
+  title, 
+  description = 'Diseños exclusivos y a medida para tu hogar o negocio. Fabricación y remodelación de cocinas, closets y espacios comerciales.',
+  image = `${site}/logo.png`,
+  type = 'website',
+  url = `${site}${Astro.url.pathname}`
+} = Astro.props;
+const fullTitle = `${title} | Mueblería Casa Blanca`;
 ---
 
 <!doctype html>
@@ -24,6 +35,25 @@ const { title, description = 'Diseños exclusivos y a medida para tu hogar o neg
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="shortcut icon" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
+    
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="Mueblería Casa Blanca" />
+    <meta property="og:locale" content="es_CL" />
+    
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={url} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    
+    {/* Canonical URL */}
+    <link rel="canonical" href={url} />
     
     {/* CSS crítico inline - Se inyecta primero para evitar bloqueo */}
     <CriticalCSS />
@@ -59,7 +89,7 @@ const { title, description = 'Diseños exclusivos y a medida para tu hogar o neg
       />
     </noscript>
     
-    <title>{title} | Mueblería Casa Blanca</title>
+    <title>{fullTitle}</title>
   </head>
   <body class="bg-cream-300 text-secondary-900 antialiased">
     <Header client:load />

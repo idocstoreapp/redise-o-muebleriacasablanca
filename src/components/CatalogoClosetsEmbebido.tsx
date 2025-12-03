@@ -12,27 +12,42 @@ const CatalogoClosetsEmbebido = ({
   className = ''
 }: CatalogoClosetsEmbebidoProps) => {
   const [iframeHeight, setIframeHeight] = useState(altura);
+  const [mounted, setMounted] = useState(false);
+
+  const [iframeSrc, setIframeSrc] = useState(urlCotizador);
 
   useEffect(() => {
-    // Prevenir scroll horizontal solo en el body
-    const preventBodyScroll = () => {
+    // Marcar como montado solo en el cliente
+    setMounted(true);
+
+    // Solo prevenir scroll horizontal, no vertical
+    const preventHorizontalScroll = () => {
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overflowX = 'hidden';
-      document.body.style.maxWidth = '100vw';
-      document.documentElement.style.maxWidth = '100vw';
     };
 
     // Establecer altura según el tamaño de pantalla
     const setHeight = () => {
       if (window.innerWidth < 768) {
-        setIframeHeight('700px');
+        setIframeHeight('800px');
       } else {
         setIframeHeight(altura);
       }
     };
 
-    preventBodyScroll();
+    preventHorizontalScroll();
     setHeight();
+
+    // Forzar recarga del iframe con cache busting MUY agresivo
+    // Usamos múltiples parámetros y un delay para asegurar que se recargue
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substring(7);
+    const newSrc = `${urlCotizador}${urlCotizador.includes('?') ? '&' : '?'}v=${timestamp}&_t=${random}&nocache=1&refresh=${timestamp}&_=${random}`;
+    
+    // Pequeño delay para asegurar que el navegador no use caché
+    setTimeout(() => {
+      setIframeSrc(newSrc);
+    }, 50);
 
     window.addEventListener('resize', setHeight);
     
@@ -40,26 +55,25 @@ const CatalogoClosetsEmbebido = ({
       window.removeEventListener('resize', setHeight);
       document.body.style.overflowX = '';
       document.documentElement.style.overflowX = '';
-      document.body.style.maxWidth = '';
-      document.documentElement.style.maxWidth = '';
     };
-  }, [altura]);
+  }, [altura, urlCotizador]);
 
   return (
     <div 
-      className={`w-full max-w-full rounded-2xl shadow-xl border border-secondary-200 bg-white ${className}`}
+      className={`w-full max-w-full rounded-2xl shadow-xl border border-secondary-200 bg-white overflow-hidden ${className}`}
       style={{ 
         maxWidth: '100%',
-        overflow: 'hidden',
         position: 'relative',
         width: '100%',
         height: iframeHeight,
-        pointerEvents: 'none' // El contenedor no intercepta eventos
+        isolation: 'isolate'
       }}
     >
-      <iframe
-        src={urlCotizador}
-        title="Catálogo de Closets - Cotizador Interactivo"
+      {mounted && (
+        <iframe
+          key={iframeSrc}
+          src={iframeSrc}
+          title="Catálogo de Closets - Cotizador Interactivo"
         width="100%"
         height="100%"
         frameBorder="0"
@@ -72,13 +86,13 @@ const CatalogoClosetsEmbebido = ({
           width: '100%',
           height: '100%',
           minHeight: '600px',
-          pointerEvents: 'auto', // Solo el iframe recibe eventos
-          isolation: 'isolate' // Asegurar que el iframe esté aislado
+          overflow: 'auto'
         }}
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-pointer-lock allow-modals allow-downloads allow-presentation"
+        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-pointer-lock allow-modals allow-downloads allow-presentation allow-same-origin"
         referrerPolicy="no-referrer-when-downgrade"
         allow="clipboard-read; clipboard-write"
-      />
+        />
+      )}
     </div>
   );
 };
