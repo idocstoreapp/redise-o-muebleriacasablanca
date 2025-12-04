@@ -35,7 +35,7 @@ const Footer = () => {
             }}
           />
           <p className="text-secondary-200 max-w-md">
-            Diseños exclusivos a medida. Cocinas, closets y espacios comerciales con calidad y puntualidad.
+            Diseño exclusivo a medida, calidad y puntualidad garantizada. Cocinas, closets y muebles personalizados.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
