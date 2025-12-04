@@ -4,9 +4,38 @@ Allow: /
 # Sitemap
 Sitemap: https://muebleriacasablanca.cl/sitemap.xml
 
-# Bloquear archivos innecesarios
+# Bloquear archivos innecesarios y rutas de desarrollo
 Disallow: /api/
 Disallow: /_astro/
+Disallow: /chunks/
+Disallow: /entry/
+Disallow: /assets/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Permitir solo las páginas principales
+Allow: /
+Allow: /cocinas
+Allow: /closets
+Allow: /muebles-a-medida
+Allow: /conocenos
+Allow: /proyectos
+Allow: /proceso-creativo
+Allow: /blog
+Allow: /mis-primeros-pasos
+Allow: /cocina-moderna
+Allow: /cocina-tradicional
+Allow: /cocina-tope-de-linea
+Allow: /iluminacion-de-cocinas
+Allow: /tiradores-de-cocina-modernos
+Allow: /almacenamiento
+Allow: /cajones
+Allow: /puertas-para-muebles
+Allow: /privacidad
+Allow: /privacidad-cocinas
+Allow: /privacidad-closets
+Allow: /privacidad-muebles
 
 
 
