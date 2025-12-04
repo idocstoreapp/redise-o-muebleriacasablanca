@@ -319,14 +319,36 @@ html, body {
     margin-bottom: 0.75rem !important;
   }
   
+  /* Subir el logo más en las landing pages */
+  section.hero-responsive-padding .container-custom > div > div:first-child,
+  .hero-responsive-padding .container-custom > div > div:first-child,
+  section.hero-responsive-padding .container-custom > div > div.mb-6,
+  .hero-responsive-padding .container-custom > div > div.mb-6 {
+    margin-top: -8rem !important; /* Subir el logo mucho más */
+    margin-bottom: 0.5rem !important; /* Reducir margen inferior */
+  }
+  
   section.hero-responsive-padding h1,
   .hero-responsive-padding h1 {
     margin-bottom: 0.75rem !important;
+    margin-top: 2rem !important; /* Bajar el H1 (valor positivo lo baja) */
   }
   
   section.hero-responsive-padding p,
   .hero-responsive-padding p {
     margin-bottom: 0.75rem !important;
+    margin-top: -1.5rem !important; /* Subir el subtítulo más */
+  }
+  
+  /* Bajar más los botones en desktop */
+  section.hero-responsive-padding .container-custom .buttons-responsive-margin,
+  section.hero-responsive-padding .container-custom > div .buttons-responsive-margin,
+  section.hero-responsive-padding .container-custom > div > div.buttons-responsive-margin,
+  .hero-responsive-padding .container-custom .buttons-responsive-margin,
+  .hero-responsive-padding .container-custom > div .buttons-responsive-margin,
+  .hero-responsive-padding .container-custom > div > div.buttons-responsive-margin,
+  .hero-responsive-padding .buttons-responsive-margin {
+    bottom: -10rem !important; /* Bajar los botones 10rem más (160px) */
   }
 }
 
@@ -387,6 +409,17 @@ html, body {
   section.hero-responsive-padding ~ div[class*="md:hidden"] {
     margin-top: -2rem !important; /* Bajar de -mt-20 (-5rem) a -2rem (menos negativo = más abajo) */
     margin-bottom: 1.5rem !important; /* Ajustar margen inferior */
+  }
+}
+
+/* Ajuste específico para página de muebles: bajar más los CTAs */
+@media (min-width: 1280px) {
+  /* Selector específico para la página de muebles-a-medida usando clase hero-muebles */
+  section.hero-responsive-padding.hero-muebles .container-custom .buttons-responsive-margin,
+  section.hero-responsive-padding.hero-muebles .container-custom > div .buttons-responsive-margin,
+  section.hero-responsive-padding.hero-muebles .container-custom > div > div.buttons-responsive-margin,
+  .hero-responsive-padding.hero-muebles .buttons-responsive-margin {
+    bottom: -8rem !important; /* Bajar los botones 8rem más (128px) solo en muebles */
   }
 }
 

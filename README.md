@@ -125,3 +125,16 @@ Una vez desplegado, el sitio estará disponible en:
 - [Documentación de Vercel](https://vercel.com/docs)
 - [Tailwind CSS](https://tailwindcss.com)
 
+---
+
+## 👨‍💻 Desarrollador
+
+**Desarrollado por:** Jonathan Guarirapa  
+**Rol:** Desarrollador de aplicaciones y sitios webs
+
+**Contacto:**
+- 🌐 Portfolio: [jonadevel-portfolio.vercel.app](https://jonadevel-portfolio.vercel.app)
+- 📱 WhatsApp: [+56 9 6261 4851](https://wa.me/56962614851)
+- 📧 Email: [jona.develp@gmail.com](mailto:jona.develp@gmail.com)
+- 📷 Instagram: [@jonacrd1](https://instagram.com/jonacrd1)
+

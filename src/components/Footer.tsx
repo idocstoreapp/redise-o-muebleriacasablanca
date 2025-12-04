@@ -161,6 +161,39 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          {/* Firma discreta del desarrollador */}
+          <div className="mt-4 pt-4 border-t border-secondary-700/50">
+            <p className="text-xs text-secondary-500 text-center">
+              Desarrollado por{' '}
+              <a 
+                href="https://jonadevel-portfolio.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-secondary-400 hover:text-accent-400 transition-colors underline decoration-dotted underline-offset-2"
+                title="Jonathan Guarirapa - Desarrollador de aplicaciones y sitios webs"
+              >
+                Jonathan Guarirapa
+              </a>
+              {' · '}
+              <a 
+                href="https://wa.me/56962614851" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-secondary-400 hover:text-accent-400 transition-colors underline decoration-dotted underline-offset-2"
+                title="Contactar por WhatsApp"
+              >
+                WhatsApp
+              </a>
+              {' · '}
+              <a 
+                href="mailto:jona.develp@gmail.com" 
+                className="text-secondary-400 hover:text-accent-400 transition-colors underline decoration-dotted underline-offset-2"
+                title="Enviar correo"
+              >
+                Email
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
