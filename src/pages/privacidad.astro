@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Team from '../components/Team';
 import { Shield, Lock, Eye, FileText, Mail, Phone, MapPin } from 'lucide-react';
 ---
 
@@ -388,6 +389,9 @@ import { Shield, Lock, Eye, FileText, Mail, Phone, MapPin } from 'lucide-react';
       </div>
     </div>
   </section>
+
+  <!-- Team Section -->
+  <Team client:load />
 </BaseLayout>
 
 

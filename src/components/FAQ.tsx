@@ -17,7 +17,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: '¿Cómo funciona la cotización?',
-    answer: 'Contacto, visita gratuita, propuesta detallada con diseño y presupuesto sin compromiso. Precios según materiales, dimensiones y complejidad.',
+    answer: 'Contacto inicial, propuesta detallada con diseño y presupuesto sin compromiso. Precios según materiales, dimensiones y complejidad.',
   },
   {
     question: '¿Puedo ver trabajos anteriores?',

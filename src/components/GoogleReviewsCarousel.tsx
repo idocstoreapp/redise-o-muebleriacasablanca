@@ -114,131 +114,131 @@ const GoogleReviewsCarousel = ({ variant = 'default' }: GoogleReviewsCarouselPro
     if (width < breakpoints.small) {
       // < 770px - Móvil (no se muestra en hero, pero por si acaso)
       cardWidth = 280;
-      padding = 12;
+      padding = 20;
       right = 8;
       top = '50%';
       iconSize = 16;
       headerIconSize = 20;
       titleSize = '0.75rem';
-      ratingSize = 10;
-      starSize = 10;
+      ratingSize = 12;
+      starSize = 12;
       commentSize = '0.75rem';
       nameSize = '0.625rem';
       projectSize = '0.625rem';
       gap = 8;
-      indicatorHeight = 4;
+      indicatorHeight = 1.5;
       indicatorWidth = 4;
-      indicatorActiveWidth = 20;
+      indicatorActiveWidth = 16;
     } else if (width < breakpoints.medium) {
       // 770px - 1030px - Card más pequeño
       cardWidth = 300;
-      padding = 14;
+      padding = 22;
       right = 12;
       top = '52%';
       iconSize = 17;
       headerIconSize = 21;
       titleSize = '0.75rem';
-      ratingSize = 10;
-      starSize = 10;
+      ratingSize = 13;
+      starSize = 13;
       commentSize = '0.75rem';
       nameSize = '0.625rem';
       projectSize = '0.625rem';
       gap = 8;
-      indicatorHeight = 4;
+      indicatorHeight = 1.5;
       indicatorWidth = 4;
-      indicatorActiveWidth = 20;
+      indicatorActiveWidth = 16;
     } else if (width < breakpoints.large) {
       // 1030px - 1271px - Card más pequeño, posicionado más abajo para evitar choque con título
       cardWidth = 320;
-      padding = 16;
+      padding = 24;
       right = 16;
       top = '55%'; // Más abajo para evitar choque con título
       iconSize = 18;
       headerIconSize = 22;
       titleSize = '0.8125rem';
-      ratingSize = 11;
-      starSize = 11;
+      ratingSize = 14;
+      starSize = 14;
       commentSize = '0.8125rem';
       nameSize = '0.6875rem';
       projectSize = '0.6875rem';
       gap = 10;
-      indicatorHeight = 5;
+      indicatorHeight = 2;
       indicatorWidth = 5;
-      indicatorActiveWidth = 22;
+      indicatorActiveWidth = 20;
     } else if (width < breakpoints.xlarge) {
       // 1271px - 1280px - Card más pequeño, posicionado más abajo
       cardWidth = 360;
-      padding = 18;
+      padding = 26;
       right = 20;
       top = '55%'; // Más abajo para evitar choque con título
       bottom = undefined;
       iconSize = 19;
       headerIconSize = 23;
       titleSize = '0.875rem';
-      ratingSize = 12;
-      starSize = 12;
+      ratingSize = 15;
+      starSize = 15;
       commentSize = '0.875rem';
       nameSize = '0.75rem';
       projectSize = '0.75rem';
       gap = 11;
-      indicatorHeight = 5;
+      indicatorHeight = 2;
       indicatorWidth = 5;
-      indicatorActiveWidth = 22;
+      indicatorActiveWidth = 20;
     } else if (width < breakpoints.xxlarge) {
       // 1280px - 1456px - Card más pequeño, arriba de los botones
       cardWidth = 320;
-      padding = 16;
+      padding = 24;
       right = 20;
       top = undefined;
       bottom = '5rem'; // Arriba de los botones (botones están pegados al bottom)
       iconSize = 18;
       headerIconSize = 22;
       titleSize = '0.8125rem';
-      ratingSize = 11;
-      starSize = 11;
+      ratingSize = 14;
+      starSize = 14;
       commentSize = '0.8125rem';
       nameSize = '0.6875rem';
       projectSize = '0.6875rem';
       gap = 10;
-      indicatorHeight = 5;
+      indicatorHeight = 2;
       indicatorWidth = 5;
-      indicatorActiveWidth = 22;
+      indicatorActiveWidth = 20;
     } else if (width < breakpoints.xxxlarge) {
       // 1456px - 1725px - Card más pequeño, arriba de los botones
       cardWidth = 340;
-      padding = 18;
+      padding = 26;
       right = 24;
       top = undefined;
       bottom = '5.5rem'; // Arriba de los botones
       iconSize = 19;
       headerIconSize = 23;
       titleSize = '0.875rem';
-      ratingSize = 12;
-      starSize = 12;
+      ratingSize = 15;
+      starSize = 15;
       commentSize = '0.875rem';
       nameSize = '0.75rem';
       projectSize = '0.75rem';
       gap = 11;
-      indicatorHeight = 5;
+      indicatorHeight = 2;
       indicatorWidth = 5;
-      indicatorActiveWidth = 22;
+      indicatorActiveWidth = 20;
     } else {
       // >= 1725px - Card más pequeño
       cardWidth = 360;
-      padding = 18;
+      padding = 28;
       right = 24;
       top = '52%';
       bottom = undefined;
       iconSize = 20;
       headerIconSize = 24;
       titleSize = '0.875rem';
-      ratingSize = 12;
-      starSize = 12;
+      ratingSize = 16;
+      starSize = 16;
       commentSize = '0.875rem';
       nameSize = '0.75rem';
       projectSize = '0.75rem';
       gap = 12;
-      indicatorHeight = 6;
+      indicatorHeight = 2.5;
       indicatorWidth = 6;
       indicatorActiveWidth = 24;
     }
@@ -301,47 +301,46 @@ const GoogleReviewsCarousel = ({ variant = 'default' }: GoogleReviewsCarouselPro
              className="bg-white/30 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20"
              style={{ padding: dynamicStyles.card.padding }}
            >
-             <div 
-               className="flex items-center mb-3"
-               style={{ gap: dynamicStyles.header.gap }}
-             >
-               <svg 
-                 className="flex-shrink-0" 
-                 viewBox="0 0 24 24" 
-                 fill="none" 
-                 xmlns="http://www.w3.org/2000/svg"
-                 style={{ width: dynamicStyles.header.iconSize, height: dynamicStyles.header.iconSize }}
-               >
-                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-               </svg>
-               <div>
+             {/* Header con logo, estrellas y rating */}
+             <div className="mb-3">
+               <div className="flex items-center justify-center gap-2 mb-1">
+                 <svg 
+                   className="flex-shrink-0" 
+                   viewBox="0 0 24 24" 
+                   fill="none" 
+                   xmlns="http://www.w3.org/2000/svg"
+                   style={{ width: dynamicStyles.header.iconSize, height: dynamicStyles.header.iconSize }}
+                 >
+                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                   <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                   <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                 </svg>
                  <p 
                    className="font-bold text-secondary-950"
                    style={{ fontSize: dynamicStyles.header.titleSize }}
                  >
                    Google Reviews
                  </p>
-                 <div className="flex items-center gap-1">
-                   {[...Array(5)].map((_, i) => (
-                     <Star 
-                       key={i} 
-                       className="fill-accent-400 text-accent-400" 
-                       style={{ width: dynamicStyles.header.starSize, height: dynamicStyles.header.starSize }}
-                     />
-                   ))}
-                   <span 
-                     className="text-secondary-600 ml-1"
-                     style={{ fontSize: dynamicStyles.header.ratingSize }}
-                   >
-                     5.0
-                   </span>
-                 </div>
+               </div>
+               <div className="flex items-center justify-center gap-1">
+                 {[...Array(5)].map((_, i) => (
+                   <Star 
+                     key={i} 
+                     className="fill-accent-400 text-accent-400 flex-shrink-0" 
+                     style={{ width: dynamicStyles.header.starSize, height: dynamicStyles.header.starSize }}
+                   />
+                 ))}
+                 <span 
+                   className="text-secondary-600 font-semibold ml-0.5"
+                   style={{ fontSize: dynamicStyles.header.ratingSize }}
+                 >
+                   5.0
+                 </span>
                </div>
              </div>
             
+            {/* Contenido de reviews */}
             <div className="relative overflow-hidden">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
@@ -350,29 +349,19 @@ const GoogleReviewsCarousel = ({ variant = 'default' }: GoogleReviewsCarouselPro
                 {reviews.map((review) => (
                   <div
                     key={review.id}
-                    className="min-w-full flex-shrink-0"
+                    className="min-w-full flex-shrink-0 px-1"
                   >
-                     <div 
-                       className="flex items-center mb-2"
-                       style={{ gap: dynamicStyles.content.gap }}
-                     >
-                       {[...Array(review.rating)].map((_, i) => (
-                         <Star 
-                           key={i} 
-                           className="fill-accent-400 text-accent-400" 
-                           style={{ width: dynamicStyles.content.starSize, height: dynamicStyles.content.starSize }}
-                         />
-                       ))}
-                     </div>
+                     {/* Comentario */}
                      <p 
-                       className="text-secondary-700 mb-2 leading-relaxed line-clamp-3"
+                       className="text-secondary-700 mb-2.5 leading-relaxed line-clamp-3"
                        style={{ fontSize: dynamicStyles.content.commentSize }}
                      >
                        "{review.comment}"
                      </p>
+                     {/* Nombre y proyecto */}
                      <div 
-                       className="flex items-center"
-                       style={{ gap: dynamicStyles.content.gap }}
+                       className="flex items-center flex-wrap"
+                       style={{ gap: `${parseFloat(dynamicStyles.content.gap) * 0.75}px` }}
                      >
                        <p 
                          className="font-semibold text-secondary-950"

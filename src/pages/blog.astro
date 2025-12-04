@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Team from '../components/Team';
 import { ArrowRight, Calendar } from 'lucide-react';
 ---
 
@@ -134,5 +135,8 @@ import { ArrowRight, Calendar } from 'lucide-react';
       </div>
     </div>
   </section>
+
+  <!-- Team Section -->
+  <Team client:load />
 </BaseLayout>
 

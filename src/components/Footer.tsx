@@ -35,7 +35,9 @@ const Footer = () => {
             }}
           />
           <p className="text-secondary-200 max-w-md">
-            Diseño exclusivo a medida, calidad y puntualidad garantizada. Cocinas, closets y muebles personalizados.
+            Diseño exclusivo a medida, calidad y puntualidad garantizada.
+            <br />
+            Cocinas, closets y muebles personalizados.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -126,7 +128,7 @@ const Footer = () => {
             <h3 className="font-display text-xl font-bold mb-4 text-accent-400">Síguenos</h3>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/Muebleriacasablanca/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-secondary-700 rounded-lg flex items-center justify-center hover:bg-accent-400 transition-colors text-secondary-100 hover:text-white"
@@ -135,7 +137,7 @@ const Footer = () => {
                 <Facebook className="w-6 h-6" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/muebleria_casablanca/?hl=es"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-secondary-700 rounded-lg flex items-center justify-center hover:bg-accent-400 transition-colors text-secondary-100 hover:text-white"
