@@ -49,9 +49,9 @@ const Footer = () => {
                   +56 9 6429 5258
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent-400 flex-shrink-0" />
-                <a href="mailto:contacto@muebleriacasablanca.cl" className="text-secondary-100 hover:text-accent-400 transition-colors">
+              <li className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-accent-400 flex-shrink-0 mt-1" />
+                <a href="mailto:contacto@muebleriacasablanca.cl" className="text-secondary-100 hover:text-accent-400 transition-colors break-words">
                   contacto@muebleriacasablanca.cl
                 </a>
               </li>
