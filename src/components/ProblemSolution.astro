@@ -55,13 +55,13 @@ const {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         <!-- Problema -->
         <div class="flex flex-col h-full">
+          <!-- Título fuera del card -->
+          <div class="mb-4">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-red-600 uppercase tracking-wide">
+              PROBLEMA
+            </h2>
+          </div>
           <div class="bg-gradient-to-br from-white to-red-50/30 rounded-2xl p-8 border border-red-100/50 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-            <!-- Título de sección -->
-            <div class="mb-4">
-              <h3 class="font-display text-sm md:text-base font-semibold text-red-600 uppercase tracking-wide mb-2">
-                El Problema
-              </h3>
-            </div>
             <!-- Icono y título -->
             <div class="flex items-start gap-4 mb-6">
               <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -70,9 +70,9 @@ const {
                 </svg>
               </div>
               <div class="flex-1">
-                <h2 class="font-display text-xl md:text-2xl font-bold text-secondary-950 mb-2 leading-tight">
+                <h3 class="font-display text-xl md:text-2xl font-bold text-secondary-950 mb-2 leading-tight">
                   {problem}
-                </h2>
+                </h3>
               </div>
             </div>
             <!-- Descripción -->
@@ -84,13 +84,13 @@ const {
 
         <!-- Solución -->
         <div class="flex flex-col h-full">
+          <!-- Título fuera del card -->
+          <div class="mb-4">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-600 uppercase tracking-wide">
+              SOLUCIÓN
+            </h2>
+          </div>
           <div class="bg-gradient-to-br from-white to-primary-50/30 rounded-2xl p-8 border border-primary-100/50 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-            <!-- Título de sección -->
-            <div class="mb-4">
-              <h3 class="font-display text-sm md:text-base font-semibold text-primary-600 uppercase tracking-wide mb-2">
-                La Solución
-              </h3>
-            </div>
             <!-- Icono y título -->
             <div class="flex items-start gap-4 mb-6">
               <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -99,9 +99,9 @@ const {
                 </svg>
               </div>
               <div class="flex-1">
-                <h2 class="font-display text-xl md:text-2xl font-bold text-secondary-950 mb-2 leading-tight">
+                <h3 class="font-display text-xl md:text-2xl font-bold text-secondary-950 mb-2 leading-tight">
                   {solution}
-                </h2>
+                </h3>
               </div>
             </div>
             <!-- Descripción -->
@@ -131,4 +131,3 @@ const {
     </div>
   </div>
 </section>
-
