@@ -37,6 +37,7 @@ const Footer = () => {
           <p className="text-secondary-200 max-w-md">
             Diseño exclusivo a medida, calidad y puntualidad garantizada.
             <br />
+            <br />
             Cocinas, closets y muebles personalizados.
           </p>
         </div>
