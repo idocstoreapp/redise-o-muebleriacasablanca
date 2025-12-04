@@ -24,10 +24,15 @@ const Footer = () => {
       <div className="container-custom">
         <div className="mb-12 pb-8 border-b border-secondary-600">
           <img 
-            src="/logo.png" 
+            src="/logo-blaco.png" 
             alt="Mueblería Casa Blanca" 
             className="h-16 w-auto mb-4 drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] filter brightness-110 contrast-110"
             style={{ filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.3)) drop-shadow(0 0 4px rgba(255,255,255,0.1))' }}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = '/logo-blanco.png';
+              target.onerror = null;
+            }}
           />
           <p className="text-secondary-200 max-w-md">
             Diseños exclusivos a medida. Cocinas, closets y espacios comerciales con calidad y puntualidad.

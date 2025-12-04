@@ -346,3 +346,47 @@ html, body {
   }
 }
 
+/* Asegurar que Google Reviews tenga las mismas dimensiones en todas las páginas */
+/* Aplicar estilos consistentes para el GoogleReviewsCarousel en landing pages */
+@media (min-width: 1280px) {
+  /* Asegurar que el hero en landing pages tenga la misma altura mínima que el index */
+  section.hero-responsive-padding {
+    min-height: 650px !important;
+    height: auto !important; /* Permitir que crezca según contenido */
+  }
+  
+  /* Bajar el GoogleReviewsCarousel en landing pages (no en index) */
+  section.hero-responsive-padding > div[class*="absolute"][class*="z-20"] {
+    z-index: 15 !important; /* Debajo de los botones (z-20) pero arriba del contenido (z-10) */
+  }
+  
+  /* Ajustar bottom para bajar el card cuando usa bottom (1280px - 1456px) */
+  section.hero-responsive-padding > div[class*="absolute"][class*="z-20"] {
+    bottom: 7.5rem !important; /* Bajar de 5rem a 7.5rem (40px más abajo) */
+  }
+  
+  /* Asegurar que los botones tengan z-index más alto que el GoogleReviewsCarousel */
+  section.hero-responsive-padding .buttons-responsive-margin {
+    z-index: 20 !important; /* Por encima del GoogleReviewsCarousel */
+  }
+}
+
+/* Ajuste adicional para bajar Google Reviews en landing pages en diferentes breakpoints */
+@media (min-width: 1456px) and (max-width: 1725px) {
+  /* Bajar el card un poco más en este rango */
+  section.hero-responsive-padding > div[class*="absolute"][class*="z-20"] {
+    bottom: 8rem !important; /* Bajar de 5.5rem a 8rem (40px más abajo) */
+  }
+}
+
+/* Bajar Google Reviews en móvil en landing pages (no en index) */
+@media (max-width: 767px) {
+  /* Bajar el contenedor del Google Reviews en móvil en landing pages */
+  /* Solo aplicar a páginas con hero-responsive-padding (landing pages), no hero-container (index) */
+  section.hero-responsive-padding + div[class*="md:hidden"],
+  section.hero-responsive-padding ~ div[class*="md:hidden"] {
+    margin-top: -2rem !important; /* Bajar de -mt-20 (-5rem) a -2rem (menos negativo = más abajo) */
+    margin-bottom: 1.5rem !important; /* Ajustar margen inferior */
+  }
+}
+

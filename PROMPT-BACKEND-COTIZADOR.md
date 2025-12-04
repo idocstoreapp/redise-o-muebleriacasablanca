@@ -63,3 +63,4 @@ Actualizar `ProductDetailPublico.tsx` para que:
 4. Mantenga el comportamiento actual que ya funciona para cocinas
 
 
+
