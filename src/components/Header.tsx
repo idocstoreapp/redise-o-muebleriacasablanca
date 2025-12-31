@@ -14,6 +14,17 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
           <a href="/" className="flex items-center gap-3 group">
+            <img 
+              src="/logo-blaco.png" 
+              alt="Mueblería Casa Blanca" 
+              className="h-10 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] filter brightness-110 contrast-110"
+              style={{ filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.3)) drop-shadow(0 0 4px rgba(255,255,255,0.1))' }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/logo-blanco.png';
+                target.onerror = null;
+              }}
+            />
             <span className="font-display text-xl font-bold text-white">
               Mueblería Casa Blanca
             </span>
