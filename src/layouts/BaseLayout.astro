@@ -90,6 +90,16 @@ const fullTitle = `${title} | Mueblería Casa Blanca`;
     </noscript>
     
     <title>{fullTitle}</title>
+
+    <!-- Google tag (gtag.js) - Muebleria Casa Blanca -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-10954040557"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-10954040557');
+    </script>
+    <!-- End Google tag -->
   </head>
   <body class="bg-cream-300 text-secondary-900 antialiased">
     <Header client:load />
